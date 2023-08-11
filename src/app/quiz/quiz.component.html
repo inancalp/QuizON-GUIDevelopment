@@ -1,0 +1,39 @@
+<p>quiz id: id: {{quiz.id}}</p>
+<p>quiz title : {{quiz.title}}</p>
+
+
+<div *ngFor="let question of quiz.questions; let i = index" [hidden]="i < startIndex || i >= endIndex">
+  <!-- Display each question here -->
+  <p>{{ question.question }}</p>
+
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="answer{{i}}" id="answer{{i}}" value="answerA" [(ngModel)]="question.selectedAnswer">
+    <label class="form-check-label" for="answer{{i}}">
+      {{ question.answerA }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="answer{{i}}" id="answer{{i}}" value="answerB" [(ngModel)]="question.selectedAnswer">
+    <label class="form-check-label" for="answer{{i}}">
+      {{ question.answerB }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="answer{{i}}" id="answer{{i}}" value="answerC" [(ngModel)]="question.selectedAnswer">
+    <label class="form-check-label" for="answer{{i}}">
+      {{ question.answerC }}
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="answer{{i}}" id="answer{{i}}" value="answerD" [(ngModel)]="question.selectedAnswer">
+    <label class="form-check-label" for="answer{{i}}">
+      {{ question.answerD }}
+    </label>
+  </div>
+</div>
+<button type="button" class="btn btn-light me-2" (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+<button type="button" class="btn btn-light me-2" (click)="nextPage()" [disabled]="endIndex >= quiz.questions.length">Next</button>
+<button type="button" class="btn btn-light me-2" (click)="showScore()" [disabled]="!isAllAnswersSelected()">Show Score</button>
+
+
+

@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-end mb-2">
+  <button type="button" class="btn btn-primary" (click)="onAddQuizClicked()">Add Quiz</button>
+</div>
+<hr>
+<div class="list-group">
+  <div *ngFor="let quiz of quizzes; let i = index">
+    <button type="button" class="list-group-item list-group-item-action mb-2" (click)="navigateToQuiz(quiz.id)"> {{ quiz.title }}</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="d-flex justify-content-end">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" [routerLink]="['/quiz-on', 'previous-page']">Previous</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" [routerLink]="['/quiz-on', 'quiz-one']">1</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" [routerLink]="['/quiz-on', 'quiz-two']">2</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" [routerLink]="['/quiz-on', 'quiz-three']">3</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" [routerLink]="['/quiz-on', 'next-page']">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<router-outlet></router-outlet> -->
+
+

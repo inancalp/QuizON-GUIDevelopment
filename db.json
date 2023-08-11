@@ -1,0 +1,123 @@
+{
+  "quizzes": [
+    {
+      "title": "my-quiz",
+      "courseName": "my-course",
+      "questions": [
+        {
+          "question": "quiz-1",
+          "answerA": "a-1",
+          "answerB": "b-1",
+          "answerC": "c-1",
+          "answerD": "d-1",
+          "correctAnswer": "a-1"
+        },
+        {
+          "question": "quiz-2",
+          "answerA": "a-2",
+          "answerB": "b-2",
+          "answerC": "c-2",
+          "answerD": "d-2",
+          "correctAnswer": "b-2"
+        },
+        {
+          "question": "quiz-3",
+          "answerA": "a-3",
+          "answerB": "b-3",
+          "answerC": "c-3",
+          "answerD": "d-3",
+          "correctAnswer": "c-3"
+        },
+        {
+          "question": "quiz-4",
+          "answerA": "a-4",
+          "answerB": "b-4",
+          "answerC": "c-4",
+          "answerD": "d-4",
+          "correctAnswer": "d-4"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "title": "asdf",
+      "courseName": "asdf",
+      "questions": [
+        {
+          "question": "asdf",
+          "answerA": "asdf",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "asdf"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "title": "asdfdfsfsda",
+      "courseName": "asdfdfasdf",
+      "questions": [
+        {
+          "question": "asdfdfsa",
+          "answerA": "asdf",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "asdf"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "title": "new-quiz",
+      "courseName": "new-course",
+      "questions": [
+        {
+          "question": "nq-1",
+          "answerA": "na-1",
+          "answerB": "n-b2",
+          "answerC": "nc-3",
+          "answerD": "nd-4",
+          "correctAnswer": "",
+          "selectedAnswer": ""
+        },
+        {
+          "question": "nq-1",
+          "answerA": "na-2",
+          "answerB": "n-b2",
+          "answerC": "nc-2",
+          "answerD": "nd-2",
+          "correctAnswer": "",
+          "selectedAnswer": ""
+        }
+      ],
+      "id": 5
+    },
+    {
+      "title": "yasin-quiz",
+      "courseName": "yasin-course",
+      "questions": [
+        {
+          "question": "q-1",
+          "answerA": "a-1",
+          "answerB": "b-1",
+          "answerC": "c-1",
+          "answerD": "d-1",
+          "correctAnswer": "answerA",
+          "selectedAnswer": ""
+        },
+        {
+          "question": "q-2",
+          "answerA": "a-2",
+          "answerB": "b-2",
+          "answerC": "c-2",
+          "answerD": "d-2",
+          "correctAnswer": "answerB",
+          "selectedAnswer": ""
+        }
+      ],
+      "id": 6
+    }
+  ]
+}

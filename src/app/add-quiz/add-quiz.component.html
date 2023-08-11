@@ -1,0 +1,15 @@
+<form>
+  <div class="mb-3">
+    <label for="quizTitle" class="form-label fw-bold">Quiz Title:</label>
+    <input type="text" class="form-control" id="quizTitle" name="quizTitle" aria-describedby="quizTitle" [(ngModel)]="quiz.title">
+  </div>
+  <div class="mb-3">
+    <label for="courseName" class="form-label fw-bold">Course Name:</label>
+    <div class="d-flex">
+      <input type="text" class="form-control" id="courseName" name="courseName" aria-describedby="courseName" [(ngModel)]="quiz.courseName">
+    </div>
+  </div>
+  <div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-primary me-2" (click)="startAddingQuestions()">Start Adding Questions</button>
+  </div>
+</form>
