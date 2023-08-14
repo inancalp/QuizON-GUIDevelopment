@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizComponent } from './quiz/quiz.component';
+import { ResultsComponent } from './results/results.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { QuizComponent } from './quiz/quiz.component';
     AddQuizComponent,
     AddQuestionComponent,
     QuizComponent,
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,

@@ -30,11 +30,15 @@ export class AddQuestionComponent implements OnInit {
   appendQuestion() {
 
     let newQuestion = new Question();
+
+    const questionId = this.quiz.questions.length;
+
     newQuestion.question = this.question.question;
     newQuestion.answerA = this.question.answerA;
     newQuestion.answerB = this.question.answerB;
     newQuestion.answerC = this.question.answerC;
     newQuestion.answerD = this.question.answerD;
+    newQuestion.id = questionId;
 
     // fix with Angular Directives later. //
     this.correctAnswerMiddleWare(newQuestion);

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Quiz } from './quiz.model';
 import { Observable } from 'rxjs';
+import { Question } from './question.model';
 
 
 @Injectable({
@@ -26,6 +27,17 @@ export class QuizzesService {
   getQuizById(id: number): Observable<Quiz> {
     const url = 'http://localhost:3000/quizzes/' + id;
     return this.http.get<Quiz>(url);
+  }
+
+  // updateSelectedAnswer(selectedAnswer: string, quizId: number, question: {question: Question}): Observable<Quiz> {
+  //   console.log(question);
+  //   const url = `http://localhost:3000/quizzes/${quizId}/questions`;
+  //   return this.http.patch<Quiz>(url, question);
+  // }
+
+  updateQuiz(quiz: Quiz): Observable<Quiz> {
+    const url = 'http://localhost:3000/quizzes/' + quiz.id;
+    return this.http.put<Quiz>(url, quiz);
   }
 
 }

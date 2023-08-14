@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+/* change the color with using microsoft powertoys color picker */
+.answerOnHover:hover {
+  background-color: #f8f9fa;
+  cursor: pointer; /* Change this color to your desired hover color */
+}

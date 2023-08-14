@@ -6,6 +6,7 @@ import { QuizOnComponent } from './quiz-on/quiz-on.component';
 import { AddQuizComponent } from './add-quiz/add-quiz.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { ResultsComponent } from './results/results.component';
 
 const routes: Routes = [
   //  pathMatch: 'full', otherwise it sees other paths as '' too.
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'quiz-on', component: QuizOnComponent},
   {path: 'quiz-on/add-quiz', component: AddQuizComponent},
   {path: 'quiz-on/add-quiz/add-question', component:AddQuestionComponent},
-  {path: 'quiz-on/quiz/:quizId', component: QuizComponent }
+  {path: 'quiz-on/quiz/:quizId', component: QuizComponent },
+  {path: 'quiz-on/quiz/:quizId/quiz-results', component: ResultsComponent}
 ];
 
 @NgModule({

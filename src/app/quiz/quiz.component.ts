@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { QuizzesService } from '../quizzes.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Quiz } from '../quiz.model';
+import { StatisticsService } from '../statistics.service';
 
 @Component({
   selector: 'app-quiz',
@@ -11,7 +12,6 @@ import { Quiz } from '../quiz.model';
 export class QuizComponent {
 
   quiz: Quiz = new Quiz();
-
   // pagination variables
   startIndex = 0;
   pageSize = 1; // number of questions per page.
@@ -20,7 +20,12 @@ export class QuizComponent {
   //
 
 
-  constructor(private route: ActivatedRoute, private quizzesService: QuizzesService) { }
+  constructor(
+      private router: Router,
+      private route: ActivatedRoute,
+      private quizzesService: QuizzesService,
+      private statisticsService: StatisticsService
+     ) { }
 
   ngOnInit(): void {
     this.route.paramMap
@@ -75,19 +80,33 @@ export class QuizComponent {
     let correctAnswers = 0;
 
     for (let i = 0; i < this.quiz.questions.length; i++) {
-      const question = this.quiz.questions[i];
+
+      let question = this.quiz.questions[i];
+
+      // this.quizzesService.updateSelectedAnswer(question.selectedAnswer, this.quiz.id, {question:question}).subscribe({
+      //   next: (response: Quiz) => {
+      //     console.log("Question Updated! Quiz: ", response);
+      //   },
+      //   error: (error) => console.log("Error occured: ", error)
+      // })
 
       if(question.selectedAnswer == question.correctAnswer)
       {
         correctAnswers++;
+        this.statisticsService.totalCorrectAnswers++;
       }
-      console.log(`Question ${i + 1}: ${question.question}`);
-      console.log(`Selected Answer: ${question.selectedAnswer}`);
-      console.log(`Correct Answer: ${question.correctAnswer}`);
     }
 
-    console.log(`Score: ${correctAnswers} \ ${questionsAmount}`)
 
+    this.quizzesService.updateQuiz(this.quiz).subscribe(
+      (response: Quiz) => {
+        console.log("Quiz updated: ", response)
+        this.router.navigate(['/quiz-on/quiz', this.quiz.id, 'quiz-results']);
+      });
+
+
+    // this.statisticsService.incTotalQuizMade();
+    // this.statisticsService.incTotalQuizFinished();
 
   }
 
@@ -96,5 +115,4 @@ export class QuizComponent {
     // since inital value for each question is "", if none answer chosen, it will return false.
     return this.quiz.questions.every(question => question.selectedAnswer);
   }
-
 }

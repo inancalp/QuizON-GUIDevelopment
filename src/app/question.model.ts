@@ -6,6 +6,7 @@ export class Question{
   answerD: string;
   correctAnswer: string;
   selectedAnswer: string;
+  id: number;
 
   constructor()
   {
@@ -16,5 +17,6 @@ export class Question{
     this.answerD = '';
     this.correctAnswer = '';
     this.selectedAnswer = '';
+    this.id = -1;
   }
 }
