@@ -12,12 +12,12 @@ import { StatisticsService } from '../statistics.service';
 export class QuizComponent {
 
   quiz: Quiz = new Quiz();
+
   // pagination variables
   startIndex = 0;
   pageSize = 1; // number of questions per page.
   endIndex = this.pageSize; // Initial value based on page size
   currentPage = 1; // Current page number
-  //
 
 
   constructor(
@@ -33,22 +33,22 @@ export class QuizComponent {
         this.onLoadQuiz(+params.get('quizId')!);
       });
 
-
       // pagination initialization
       this.updatePagination();
   }
 
 
   onLoadQuiz(id: number): void {
-    // console.log('id: ', id);
     this.quizzesService.getQuizById(id).subscribe({
       next: (response: Quiz) => {
         console.log('Quiz Loaded: ', response);
         this.quiz = response;
+        this.emptySelectedAnswers();
       },
       error: (error) => console.log('Error while loading the Quiz: ', error)
     });
   }
+
 
 
   // pagination funtionality:
@@ -73,7 +73,7 @@ export class QuizComponent {
 
 
   // delete later.
-  showScore()
+  showResults()
   {
 
     let questionsAmount = this.quiz.questions.length;
@@ -82,14 +82,6 @@ export class QuizComponent {
     for (let i = 0; i < this.quiz.questions.length; i++) {
 
       let question = this.quiz.questions[i];
-
-      // this.quizzesService.updateSelectedAnswer(question.selectedAnswer, this.quiz.id, {question:question}).subscribe({
-      //   next: (response: Quiz) => {
-      //     console.log("Question Updated! Quiz: ", response);
-      //   },
-      //   error: (error) => console.log("Error occured: ", error)
-      // })
-
       if(question.selectedAnswer == question.correctAnswer)
       {
         correctAnswers++;
@@ -104,7 +96,7 @@ export class QuizComponent {
         this.router.navigate(['/quiz-on/quiz', this.quiz.id, 'quiz-results']);
       });
 
-
+      // don't forget to do this ones.
     // this.statisticsService.incTotalQuizMade();
     // this.statisticsService.incTotalQuizFinished();
 
@@ -114,5 +106,11 @@ export class QuizComponent {
     // every() method iterates through each question's selectedAnswer attribute, and if the attribute returns true for each, every will return true.
     // since inital value for each question is "", if none answer chosen, it will return false.
     return this.quiz.questions.every(question => question.selectedAnswer);
+  }
+
+  emptySelectedAnswers(): void {
+    for(let question of this.quiz.questions){
+      question.selectedAnswer = "";
+    }
   }
 }

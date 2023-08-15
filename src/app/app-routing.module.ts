@@ -11,6 +11,7 @@ import { ResultsComponent } from './results/results.component';
 const routes: Routes = [
   //  pathMatch: 'full', otherwise it sees other paths as '' too.
   {path: 'main-page', component: MainPageComponent, pathMatch: 'full'},
+  {path: '', redirectTo: 'main-page', pathMatch: 'full'},
   {path: 'my-notes', component: MyNotesComponent},
   {path: 'quiz-on', component: QuizOnComponent},
   {path: 'quiz-on/add-quiz', component: AddQuizComponent},

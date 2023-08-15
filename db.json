@@ -1,6 +1,98 @@
 {
-  "quizzes":
-  [
-
+  "quizzes": [
+    {
+      "title": "myQuiz",
+      "courseName": "myCourse",
+      "questions": [
+        {
+          "question": "q1",
+          "answerA": "a1",
+          "answerB": "b1",
+          "answerC": "c1",
+          "answerD": "d1",
+          "correctAnswer": "answerA",
+          "selectedAnswer": "answerA",
+          "id": 0
+        },
+        {
+          "question": "q2",
+          "answerA": "a2",
+          "answerB": "b2",
+          "answerC": "c2",
+          "answerD": "d2",
+          "correctAnswer": "answerB",
+          "selectedAnswer": "answerA",
+          "id": 1
+        },
+        {
+          "question": "q3",
+          "answerA": "a3",
+          "answerB": "b3",
+          "answerC": "c3",
+          "answerD": "d3",
+          "correctAnswer": "answerC",
+          "selectedAnswer": "answerA",
+          "id": 2
+        },
+        {
+          "question": "q4",
+          "answerA": "a4",
+          "answerB": "b4",
+          "answerC": "c4",
+          "answerD": "d4",
+          "correctAnswer": "answerD",
+          "selectedAnswer": "answerA",
+          "id": 3
+        }
+      ],
+      "id": 1
+    },
+    {
+      "title": "myQuiz2",
+      "courseName": "myCourse2",
+      "questions": [
+        {
+          "question": "qq1",
+          "answerA": "aa1",
+          "answerB": "bb1",
+          "answerC": "cc1",
+          "answerD": "dd1",
+          "correctAnswer": "answerA",
+          "selectedAnswer": "answerB",
+          "id": 0
+        },
+        {
+          "question": "qq2",
+          "answerA": "aa2",
+          "answerB": "bb2",
+          "answerC": "cc2",
+          "answerD": "dd2",
+          "correctAnswer": "answerB",
+          "selectedAnswer": "answerD",
+          "id": 1
+        },
+        {
+          "question": "qq3",
+          "answerA": "aa3",
+          "answerB": "bb3",
+          "answerC": "cc3",
+          "answerD": "dd3",
+          "correctAnswer": "answerC",
+          "selectedAnswer": "answerC",
+          "id": 2
+        },
+        {
+          "question": "qq4",
+          "answerA": "aa4",
+          "answerB": "bb4",
+          "answerC": "cc4",
+          "answerD": "dd4",
+          "correctAnswer": "answerD",
+          "selectedAnswer": "answerD",
+          "id": 3
+        }
+      ],
+      "id": 2
+    }
   ]
 }

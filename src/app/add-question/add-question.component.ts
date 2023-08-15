@@ -82,4 +82,21 @@ export class AddQuestionComponent implements OnInit {
     });
   }
 
+
+  generateCorrectAnswer(question: Question)
+  {
+    switch (question.correctAnswer) {
+      case "answerA":
+        return question.answerA;
+      case "answerB":
+        return question.answerB;
+      case "answerC":
+        return question.answerC;
+      case "answerD":
+        return question.answerD;
+      default:
+        return "Something went wrong! No Correct Answers Found.";
+    }
+  }
+
 }
