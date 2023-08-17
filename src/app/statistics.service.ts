@@ -1,32 +1,73 @@
 import { Injectable } from '@angular/core';
+import { Statistics } from './statistics.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class StatisticsService {
 
+  statistics: Statistics = new Statistics();
 
-  totalQuizMade: number;
-  totalQuizFinished: number;
-  avgAmountQuestionsPerQuiz: number;
-  totalSolvedQuestions: number;
-  totalCorrectAnswers: number
+  constructor(private http: HttpClient) {}
 
-  constructor() {
-    this.totalQuizMade = 0;
-    this.totalQuizFinished = 0;
-    this.avgAmountQuestionsPerQuiz = 0;
-    this.totalSolvedQuestions = 0;
-    this.totalCorrectAnswers = 0;
-   }
+  // change to the
+  getStatistics(): Observable<Statistics[]> {
+    const url = 'http://localhost:3000/statistics/';
+    return this.http.get<Statistics[]>(url);
+  }
 
-   incTotalQuizMade(){
-    this.totalQuizMade++;
-    console.log("totalQuizMade: ", this.totalQuizMade);
-   }
+  updateStatistics(statistics: Statistics): Observable<Statistics> {
+    console.log('statistics.service.statistics Object within updateStatistics(): ', statistics);
+    const url = 'http://localhost:3000/statistics/' + statistics.id;
+    return this.http.put<Statistics>(url, statistics);
+  }
 
-   incTotalQuizFinished(){
-    this.totalQuizFinished--;
-    console.log("totalQuizFinished: ", this.totalQuizFinished);
-   }
+
+
+
+  // updateTotalQuizMade(){
+  //   console.log("totalQuizMade-BEFORE: ", this.statistics.totalQuizMade);
+  //   this.statistics.totalQuizMade++;
+  //   console.log("totalQuizMade-AFTER: ", this.statistics.totalQuizMade);
+  //   this.onUpdateStatistics();
+  // }
+
+
+  // updateStatisticsMiddleWare(toUpdate: string)
+  // {
+  //   switch (toUpdate) {
+  //     case "totalQuizMade":
+  //       this.statistics.totalQuizMade++;
+  //       break;
+  //     case "totalQuestionsMade":
+  //       // this.statistics.totalQuizMade++;
+  //       break;
+  //     case "totalQuizFinished":
+  //       this.statistics.totalQuizFinished++;
+  //       break;
+  //     case "avgAmountQuestionsPerQuiz":
+  //       this.statistics.avgAmountQuestionsPerQuiz = this.calcAvgAmountQuestionsPerQuiz();
+  //       break;
+  //     case "totalSolvedQuestions":
+  //       this.statistics = "Operation is pending.";
+  //       break;
+  //     case "totalCorrectAnswers":
+  //     this.statistics = "Operation is pending.";
+  //     break;
+  //     default:
+  //       this.statistics = "Unknown status.";
+  //       break;
+  //   }
+  // }
+
+
+  // calcAvgAmountQuestionsPerQuiz(): number
+  // {
+
+  // }
+
 }

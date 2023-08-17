@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Quiz } from '../quiz.model';
 import { Question } from '../question.model';
 import { QuizzesService } from '../quizzes.service';
+import { StatisticsService } from '../statistics.service';
+import { Statistics } from '../statistics.model';
 
 
 @Component({
@@ -14,12 +16,18 @@ export class AddQuestionComponent implements OnInit {
 
   quiz: Quiz;
   question: Question;
+  statistics: Statistics;
   correctAnswer: string;
 
-  constructor(private route: ActivatedRoute, private quizzesService: QuizzesService) {
-    this.quiz = new Quiz();
-    this.question = new Question();
-    this.correctAnswer = '';
+  constructor(
+    private statisticsService: StatisticsService,
+    private route: ActivatedRoute,
+    private quizzesService: QuizzesService) {
+      this.quiz = new Quiz();
+      this.question = new Question();
+      this.correctAnswer = '';
+      this.statistics = new Statistics();
+      this.onGetStatistics();
   }
 
   ngOnInit(): void {
@@ -72,14 +80,10 @@ export class AddQuestionComponent implements OnInit {
 
   onSubmitClick()
   {
-    // store quiz:
-    // console.log("onSubmitWorks!");
-    this.quizzesService.addQuiz(this.quiz).subscribe({
-      next: (response) => {
-        console.log('Quiz added: ', response);
-      },
-      error: (error) => console.log('Error while adding Quiz: ', error)
-    });
+    this.onAddQuiz();
+
+    this.statistics.totalQuizMade++;
+    this.onUpdateStatistics();
   }
 
 
@@ -99,4 +103,34 @@ export class AddQuestionComponent implements OnInit {
     }
   }
 
+  onAddQuiz() {
+    this.quizzesService.addQuiz(this.quiz).subscribe({
+      next: (response) => {
+        console.log('Quiz added: ', response);
+      },
+      error: (error) => console.log('Error while adding Quiz: ', error)
+    });
+  }
+
+  onGetStatistics() {
+    this.statisticsService.getStatistics().subscribe({
+      next: (response: Statistics[]) => {
+        console.log('statistics.service.getStatistics() Works!: ', response);
+        this.statistics = response[0];
+        console.log('statistics.service.statistics Object within onGetStatistics(): ', this.statistics);
+      },
+      error: (error) => {
+        console.log('statistics.service.getStatistics() Does Not Work!: ', error);
+      }
+    });
+  }
+
+  onUpdateStatistics() {
+  this.statisticsService.updateStatistics(this.statistics).subscribe(
+    (response: Statistics) => {
+      console.log('statistics.service.updateStatistics() Works!: ', response);
+    }
+  )
+
+}
 }

@@ -85,7 +85,7 @@ export class QuizComponent {
       if(question.selectedAnswer == question.correctAnswer)
       {
         correctAnswers++;
-        this.statisticsService.totalCorrectAnswers++;
+        // this.statisticsService.totalCorrectAnswers++;
       }
     }
 

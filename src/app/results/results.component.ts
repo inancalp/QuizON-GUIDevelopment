@@ -72,4 +72,8 @@ export class ResultsComponent {
         return "Something went wrong! No Correct Answers Found.";
     }
   }
+
+  isWrongAnswer(question: Question): boolean {
+    return question.selectedAnswer != question.correctAnswer ? true : false;
+  }
 }

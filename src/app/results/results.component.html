@@ -4,7 +4,7 @@
   </div>
   <div *ngFor="let question of quiz.questions; let i = index">
     <div class="card mx-2 mb-4">
-      <div class="card-header fs-5">
+      <div class="card-header fs-5 ">
         Question {{i+1}}:
       </div>
       <div class="card-body">
@@ -17,13 +17,13 @@
         <div class="fw-bold mb-1">
           - Your Answer:
         </div>
-        <div class="border p-2 mb-3">
+        <div class="border border-success border-2 p-2 mb-3" [class.border-danger]="isWrongAnswer(question)">
             {{ selectedAnswer(question) }}
         </div>
         <div class="fw-bold mb-1">
           - Correct Answer:
         </div>
-        <div class="border p-2 mb-3">
+        <div class="border border-success border-2 p-2 mb-3" [class.border-dark]="isWrongAnswer(question)">
           {{ correctAnswer(question) }}
       </div>
       </div>
