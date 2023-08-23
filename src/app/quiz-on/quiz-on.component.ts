@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Quiz } from '../quiz.model';
 import { QuizzesService } from '../quizzes.service';
 
@@ -13,13 +13,14 @@ export class QuizOnComponent {
   quizzes: Quiz[];
 
 
+  constructor(private router: Router, private quizzesService: QuizzesService) {
+    this.quizzes = [];
+  }
+
   ngOnInit(): void {
     this.onGetQuizzes();
   }
 
-  constructor(private router: Router, private quizzesService: QuizzesService) {
-    this.quizzes = [];
-  }
 
   onAddQuizClicked()
   {
@@ -41,5 +42,47 @@ export class QuizOnComponent {
   navigateToQuiz(quizId: number)
   {
     this.router.navigate(['/quiz-on/quiz', quizId]);
+  }
+
+  deleteQuiz(quizId: number) {
+    confirm('Are you sure you want to delete the Quiz?');
+    this.quizzesService.deleteQuiz(quizId).subscribe(
+      (response: any) => {
+        console.log('Quiz Deleted: ', response);
+        this.quizzesService.getQuizzes();
+        this.router.navigate(['/quiz-on'])
+          // to be able to refresh the page, so deleted quiz is not visible anymore.
+          .then(() => {
+            window.location.reload();
+          });
+      }
+    )
+  }
+
+  editQuiz(quizId: number) {
+
+    this.router.navigate(['/quiz-on/edit-quiz', quizId]);
+
+  //   let quiz = new Quiz();
+  //   this.quizzesService.getQuizById(quizId).subscribe({
+  //     next: (response: Quiz) => {
+
+  //       console.log('Quiz Loaded: ', response);
+  //       quiz = response;
+
+  //       for(let question of quiz.questions){
+  //         question.selectedAnswer = "";
+  //       }
+
+  //       const navigationExtras: NavigationExtras = {
+  //         state: {
+  //           quiz: { quiz }
+  //         }
+  //       };
+
+  //       this.router.navigate(['/quiz-on/add-quiz'], navigationExtras);
+  //     },
+  //     error: (error) => console.log('Error while loading the Quiz: ', error)
+  //   });
   }
 }

@@ -3,6 +3,7 @@ import { QuizzesService } from '../quizzes.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Quiz } from '../quiz.model';
 import { StatisticsService } from '../statistics.service';
+import { Statistics } from '../statistics.model';
 
 @Component({
   selector: 'app-quiz',
@@ -12,6 +13,7 @@ import { StatisticsService } from '../statistics.service';
 export class QuizComponent {
 
   quiz: Quiz = new Quiz();
+  statistics: Statistics = new Statistics(); //moved from constructor: new Statistics();
 
   // pagination variables
   startIndex = 0;
@@ -20,12 +22,7 @@ export class QuizComponent {
   currentPage = 1; // Current page number
 
 
-  constructor(
-      private router: Router,
-      private route: ActivatedRoute,
-      private quizzesService: QuizzesService,
-      private statisticsService: StatisticsService
-     ) { }
+  constructor(private router: Router, private route: ActivatedRoute, private quizzesService: QuizzesService, private statisticsService: StatisticsService) {}
 
   ngOnInit(): void {
     this.route.paramMap
@@ -35,6 +32,9 @@ export class QuizComponent {
 
       // pagination initialization
       this.updatePagination();
+
+      // statistics object initialization
+      this.onGetStatistics();
   }
 
 
@@ -67,38 +67,37 @@ export class QuizComponent {
   }
 
   updatePagination() {
-    this.startIndex = (this.currentPage - 1) * this.pageSize;
+    this.startIndex = (this.currentPage - 1);
     this.endIndex = this.startIndex + this.pageSize;
   }
 
 
-  // delete later.
   showResults()
   {
 
     let questionsAmount = this.quiz.questions.length;
     let correctAnswers = 0;
 
+    //statistics update
     for (let i = 0; i < this.quiz.questions.length; i++) {
 
       let question = this.quiz.questions[i];
       if(question.selectedAnswer == question.correctAnswer)
       {
         correctAnswers++;
-        // this.statisticsService.totalCorrectAnswers++;
       }
     }
+    this.statistics.totalQuizFinished++;
+    this.statistics.totalCorrectAnswers += correctAnswers;
+    this.statistics.totalSolvedQuestions += questionsAmount;
+    this.onUpdateStatistics();
 
-
+    // for to update "quiz.questions[n].selectedAnswer" within json.db
     this.quizzesService.updateQuiz(this.quiz).subscribe(
       (response: Quiz) => {
         console.log("Quiz updated: ", response)
         this.router.navigate(['/quiz-on/quiz', this.quiz.id, 'quiz-results']);
       });
-
-      // don't forget to do this ones.
-    // this.statisticsService.incTotalQuizMade();
-    // this.statisticsService.incTotalQuizFinished();
 
   }
 
@@ -113,4 +112,28 @@ export class QuizComponent {
       question.selectedAnswer = "";
     }
   }
+
+
+  onGetStatistics() {
+    this.statisticsService.getStatistics().subscribe({
+      next: (response: Statistics[]) => {
+        console.log('statistics.service.getStatistics() Works!: ', response);
+        this.statistics = response[0];
+        console.log('statistics.service.statistics Object within onGetStatistics(): ', this.statistics);
+      },
+      error: (error) => {
+        console.log('statistics.service.getStatistics() Does Not Work!: ', error);
+      }
+    });
+  }
+
+  onUpdateStatistics() {
+    this.statisticsService.updateStatistics(this.statistics).subscribe(
+      (response: Statistics) => {
+        console.log('statistics.service.updateStatistics() Works!: ', response);
+      }
+    )
+  }
+
+
 }

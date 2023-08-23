@@ -8,10 +8,11 @@ import { MyNotesComponent } from './my-notes/my-notes.component';
 import { QuizOnComponent } from './quiz-on/quiz-on.component';
 import { AddQuizComponent } from './add-quiz/add-quiz.component';
 import { FormsModule } from '@angular/forms';
-import { AddQuestionComponent } from './add-question/add-question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizComponent } from './quiz/quiz.component';
 import { ResultsComponent } from './results/results.component';
+import { RoundPipe } from './round.pipe';
+import { EditQuizComponent } from './edit-quiz/edit-quiz.component';
 
 
 @NgModule({
@@ -21,9 +22,10 @@ import { ResultsComponent } from './results/results.component';
     MyNotesComponent,
     QuizOnComponent,
     AddQuizComponent,
-    AddQuestionComponent,
     QuizComponent,
     ResultsComponent,
+    RoundPipe,
+    EditQuizComponent
   ],
   imports: [
     BrowserModule,

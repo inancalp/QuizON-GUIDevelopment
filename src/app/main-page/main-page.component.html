@@ -6,12 +6,30 @@
       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     </div>
     <div class="col border border-dark p-4 ms-2">
-      <div class="fs-3"><h1>Statistics:</h1></div>
-      <div class="fs-4">totalQuizMade = {{ this.statistics.totalQuizMade }} </div>
-      <div class="fs-4">totalQuizFinished = 0</div>
-      <div class="fs-4">avgAmountQuestionsPerQuiz = 0</div>
-      <div class="fs-4">totalSolvedQuestions = 0</div>
-      <div class="fs-4">totalCorrectAnswers = 0</div>
+      <div class="fs-3"><h1>Statistics: </h1></div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item fs-4">Total Quizzes Made: {{ this.statistics.totalQuizMade }}</li>
+        <li class="list-group-item fs-4">Total Quizzes Edited: {{ this.statistics.totalQuizEdited }}</li>
+        <li class="list-group-item fs-4">Total Questions Made: {{ this.statistics.totalQuestionsMade }}</li>
+        <!-- custom pipe "round" used here: -->
+        <li class="list-group-item fs-4">Average Amount of Questions per Quiz: {{ this.statistics.avgAmountQuestionsPerQuiz | round }}</li>
+        <li class="list-group-item fs-4">Total Quizzes Finished: {{ this.statistics.totalQuizFinished }}</li>
+        <li class="list-group-item fs-4">Total Solved Questions: {{ this.statistics.totalSolvedQuestions }}</li>
+        <li class="list-group-item fs-4">Total Correct Answers: {{ this.statistics.totalCorrectAnswers }}</li>
+        <li class="list-group-item fs-4">Success Ratio: {{ this.statistics.totalCorrectAnswers / this.statistics.totalSolvedQuestions | number:'1.2-2'}} / 1.00</li>
+      </ul>
     </div>
+
   </div>
 </div>
+
+
+<!--
+  this.totalQuizMade = -1;
+    this.totalQuestionsMade = -1;
+    this.avgAmountQuestionsPerQuiz = -1;
+    this.totalQuizFinished = -1;
+    this.totalSolvedQuestions = -1;
+    this.totalCorrectAnswers = -1;
+    this.successRatio = -1;
+-->

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Quiz } from './quiz.model';
 import { Observable } from 'rxjs';
-import { Question } from './question.model';
 
 
 @Injectable({
@@ -33,4 +32,8 @@ export class QuizzesService {
     return this.http.put<Quiz>(url, quiz);
   }
 
+  deleteQuiz(quizId: number): Observable<any> {
+    const url = 'http://localhost:3000/quizzes/' + quizId;
+    return this.http.delete(url);
+  }
 }

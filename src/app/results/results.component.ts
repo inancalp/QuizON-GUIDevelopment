@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Quiz } from '../quiz.model';
 import { QuizzesService } from '../quizzes.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Question } from '../question.model';
 
 @Component({
@@ -13,7 +13,7 @@ export class ResultsComponent {
 
   quiz: Quiz = new Quiz();
 
-  constructor(private quizzesService: QuizzesService, private route: ActivatedRoute) {}
+  constructor(private quizzesService: QuizzesService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.route.paramMap
@@ -75,5 +75,9 @@ export class ResultsComponent {
 
   isWrongAnswer(question: Question): boolean {
     return question.selectedAnswer != question.correctAnswer ? true : false;
+  }
+
+  onReturnQuizOnClicked() {
+    this.router.navigate(['/quiz-on']);
   }
 }

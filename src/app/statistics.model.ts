@@ -2,23 +2,23 @@
 export class Statistics{
 
   totalQuizMade: number;
+  totalQuizEdited: number;
   totalQuestionsMade: number;
   avgAmountQuestionsPerQuiz: number;
   totalQuizFinished: number;
   totalSolvedQuestions: number;
   totalCorrectAnswers: number;
-  successRatio: number;
   id: number;
 
   constructor()
   {
-    this.totalQuizMade = -1;
-    this.totalQuestionsMade = -1;
-    this.avgAmountQuestionsPerQuiz = -1;
-    this.totalQuizFinished = -1;
-    this.totalSolvedQuestions = -1;
-    this.totalCorrectAnswers = -1;
-    this.successRatio = -1;
-    this.id = -1;
+    this.totalQuizMade = 0;
+    this.totalQuizEdited = 0;
+    this.totalQuestionsMade = 0;
+    this.avgAmountQuestionsPerQuiz = 0;
+    this.totalQuizFinished = 0;
+    this.totalSolvedQuestions = 0;
+    this.totalCorrectAnswers = 0;
+    this.id = 0;
   }
 }

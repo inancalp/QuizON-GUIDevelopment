@@ -23,6 +23,4 @@ export class MainPageComponent {
       error: (error) => console.log('Error while loading the Quiz: ', error)
     });
   }
-
-
 }

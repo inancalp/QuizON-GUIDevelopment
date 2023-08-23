@@ -1,221 +1,79 @@
 {
   "quizzes": [
     {
-      "title": "myQuiz",
-      "courseName": "myCourse",
+      "title": "quiz-2",
+      "courseName": "course-1",
       "questions": [
         {
-          "question": "q1",
-          "answerA": "a1",
-          "answerB": "b1",
-          "answerC": "c1",
-          "answerD": "d1",
-          "correctAnswer": "answerA",
+          "question": "q-2222",
+          "answerA": "a-2",
+          "answerB": "b-2",
+          "answerC": "c-2",
+          "answerD": "d-2",
+          "correctAnswer": "answerC",
           "selectedAnswer": "answerA",
           "id": 0
         },
         {
-          "question": "q2",
-          "answerA": "a2",
-          "answerB": "b2",
-          "answerC": "c2",
-          "answerD": "d2",
-          "correctAnswer": "answerB",
-          "selectedAnswer": "answerB",
-          "id": 1
-        },
-        {
-          "question": "q3",
-          "answerA": "a3",
-          "answerB": "b3",
-          "answerC": "c3",
-          "answerD": "d3",
+          "question": "Q-3",
+          "answerA": "a-3",
+          "answerB": "b-3",
+          "answerC": "d-3",
+          "answerD": "sd-3",
           "correctAnswer": "answerC",
-          "selectedAnswer": "answerC",
+          "selectedAnswer": "answerA",
           "id": 2
         },
         {
-          "question": "q4",
-          "answerA": "a4",
-          "answerB": "b4",
-          "answerC": "c4",
-          "answerD": "d4",
+          "question": "qqqqqq",
+          "answerA": "qqqqqqqqqqqqqqqqqqqqqqqqqq",
+          "answerB": "qqqqqqqqqqqqqqq",
+          "answerC": "qqqq",
+          "answerD": "qqqqq",
           "correctAnswer": "answerD",
-          "selectedAnswer": "answerD",
-          "id": 3
+          "selectedAnswer": "answerA",
+          "id": 2
         }
       ],
       "id": 1
     },
     {
-      "title": "myQuiz2",
-      "courseName": "myCourse2",
+      "title": "my-quiz",
+      "courseName": "course",
       "questions": [
         {
-          "question": "qq1",
-          "answerA": "aa1",
-          "answerB": "bb1",
-          "answerC": "cc1",
-          "answerD": "dd1",
+          "question": "q-1",
+          "answerA": "a-1",
+          "answerB": "b-2",
+          "answerC": "v",
+          "answerD": "asdf",
           "correctAnswer": "answerA",
-          "selectedAnswer": "answerA",
+          "selectedAnswer": "",
           "id": 0
         },
         {
-          "question": "qq2",
-          "answerA": "aa2",
-          "answerB": "bb2",
-          "answerC": "cc2",
-          "answerD": "dd2",
-          "correctAnswer": "answerB",
-          "selectedAnswer": "answerB",
-          "id": 1
-        },
-        {
-          "question": "qq3",
-          "answerA": "aa3",
-          "answerB": "bb3",
-          "answerC": "cc3",
-          "answerD": "dd3",
-          "correctAnswer": "answerC",
-          "selectedAnswer": "answerB",
-          "id": 2
-        },
-        {
-          "question": "qq4",
-          "answerA": "aa4",
-          "answerB": "bb4",
-          "answerC": "cc4",
-          "answerD": "dd4",
+          "question": "123",
+          "answerA": "345",
+          "answerB": "456",
+          "answerC": "678",
+          "answerD": "789",
           "correctAnswer": "answerD",
-          "selectedAnswer": "answerD",
-          "id": 3
+          "selectedAnswer": "",
+          "id": 1
         }
       ],
       "id": 2
-    },
-    {
-      "title": "qq",
-      "courseName": "qq",
-      "questions": [
-        {
-          "question": "",
-          "answerA": "",
-          "answerB": "",
-          "answerC": "",
-          "answerD": "",
-          "correctAnswer": "",
-          "selectedAnswer": "",
-          "id": 0
-        }
-      ],
-      "id": 3
-    },
-    {
-      "title": "aa",
-      "courseName": "aa",
-      "questions": [
-        {
-          "question": "",
-          "answerA": "",
-          "answerB": "",
-          "answerC": "",
-          "answerD": "",
-          "correctAnswer": "",
-          "selectedAnswer": "",
-          "id": 0
-        }
-      ],
-      "id": 4
-    },
-    {
-      "title": "qqq",
-      "courseName": "aaa",
-      "questions": [
-        {
-          "question": "",
-          "answerA": "",
-          "answerB": "",
-          "answerC": "",
-          "answerD": "",
-          "correctAnswer": "",
-          "selectedAnswer": "",
-          "id": 0
-        }
-      ],
-      "id": 5
-    },
-    {
-      "title": "",
-      "courseName": "",
-      "questions": [
-        {
-          "question": "",
-          "answerA": "",
-          "answerB": "",
-          "answerC": "",
-          "answerD": "",
-          "correctAnswer": "",
-          "selectedAnswer": "",
-          "id": 0
-        },
-        {
-          "question": "",
-          "answerA": "",
-          "answerB": "",
-          "answerC": "",
-          "answerD": "",
-          "correctAnswer": "",
-          "selectedAnswer": "",
-          "id": 1
-        }
-      ],
-      "id": 6
-    },
-    {
-      "title": "",
-      "courseName": "",
-      "questions": [
-        {
-          "question": "",
-          "answerA": "",
-          "answerB": "",
-          "answerC": "",
-          "answerD": "",
-          "correctAnswer": "",
-          "selectedAnswer": "",
-          "id": 0
-        }
-      ],
-      "id": 7
-    },
-    {
-      "title": "",
-      "courseName": "",
-      "questions": [
-        {
-          "question": "",
-          "answerA": "",
-          "answerB": "",
-          "answerC": "",
-          "answerD": "",
-          "correctAnswer": "",
-          "selectedAnswer": "",
-          "id": 0
-        }
-      ],
-      "id": 8
     }
   ],
   "statistics": [
     {
-      "totalQuizMade": 14,
-      "totalQuestionsMade": 11,
-      "avgAmountQuestionsPerQuiz": 0,
-      "totalQuizFinished": 0,
-      "totalSolvedQuestions": 0,
-      "totalCorrectAnswers": 0,
-      "successRatio": 0,
+      "totalQuizMade": 5,
+      "totalQuizEdited": 19,
+      "totalQuestionsMade": 6,
+      "avgAmountQuestionsPerQuiz": 1.1666666666666667,
+      "totalQuizFinished": 15,
+      "totalSolvedQuestions": 43,
+      "totalCorrectAnswers": 17,
       "id": 0
     }
   ]
