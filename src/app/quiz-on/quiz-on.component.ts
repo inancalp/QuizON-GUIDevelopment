@@ -12,7 +12,6 @@ export class QuizOnComponent {
 
   quizzes: Quiz[];
 
-
   constructor(private router: Router, private quizzesService: QuizzesService) {
     this.quizzes = [];
   }
@@ -60,29 +59,6 @@ export class QuizOnComponent {
   }
 
   editQuiz(quizId: number) {
-
     this.router.navigate(['/quiz-on/edit-quiz', quizId]);
-
-  //   let quiz = new Quiz();
-  //   this.quizzesService.getQuizById(quizId).subscribe({
-  //     next: (response: Quiz) => {
-
-  //       console.log('Quiz Loaded: ', response);
-  //       quiz = response;
-
-  //       for(let question of quiz.questions){
-  //         question.selectedAnswer = "";
-  //       }
-
-  //       const navigationExtras: NavigationExtras = {
-  //         state: {
-  //           quiz: { quiz }
-  //         }
-  //       };
-
-  //       this.router.navigate(['/quiz-on/add-quiz'], navigationExtras);
-  //     },
-  //     error: (error) => console.log('Error while loading the Quiz: ', error)
-  //   });
   }
 }

@@ -3,7 +3,7 @@ import { Quiz } from './quiz.model';
 import { Question } from './question.model';
 import { Statistics } from './statistics.model';
 import { StatisticsService } from './statistics.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { QuizzesService } from './quizzes.service';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class QuizManagementService {
   questionButtonText: string;
   initialQuestionAmount: number;
 
-  constructor(private statisticsService: StatisticsService, private router: Router, private route: ActivatedRoute, private quizzesService: QuizzesService) {
+  constructor(private statisticsService: StatisticsService, private router: Router, private quizzesService: QuizzesService) {
     this.quiz = new Quiz();
     this.question = new Question();
     this.statistics = new Statistics();
@@ -107,23 +107,6 @@ export class QuizManagementService {
   }
 
 
-  generateCorrectAnswer(question: Question)
-  {
-    console.log("generateCorrectAnswer Function: ", question);
-    switch (question.correctAnswer) {
-      case "answerA":
-        return question.answerA;
-      case "answerB":
-        return question.answerB;
-      case "answerC":
-        return question.answerC;
-      case "answerD":
-        return question.answerD;
-      default:
-        return "Something went wrong! No Correct Answers Found.";
-    }
-  }
-
   onEditClick(i: number){
     this.editClicked = true;
     this.questionIndex = i;
@@ -148,8 +131,6 @@ export class QuizManagementService {
     this.statistics.totalQuizEdited++;
     this.statistics.totalQuestionsMade += (this.quiz.questions.length - this.initialQuestionAmount);
     this.statistics.avgAmountQuestionsPerQuiz = (this.statistics.totalQuestionsMade + (this.quiz.questions.length - this.initialQuestionAmount)) / (this.statistics.totalQuizMade + 1);
-
-
     this.onEditQuiz();
   }
 
@@ -159,7 +140,6 @@ export class QuizManagementService {
     this.statistics.totalQuizMade++;
     this.statistics.totalQuestionsMade += this.quiz.questions.length;
     this.statistics.avgAmountQuestionsPerQuiz = (this.statistics.totalQuestionsMade + this.quiz.questions.length) / (this.statistics.totalQuizMade + 1);
-
     this.onAddQuiz();
   }
 
@@ -203,10 +183,7 @@ export class QuizManagementService {
 
         this.onUpdateStatistics();
         this.clearObjects();
-        this.router.navigate(['/quiz-on'])
-          .then(() => {
-            window.location.reload();
-          });
+        this.router.navigate(['/quiz-on']);
       });
   }
 
@@ -218,10 +195,7 @@ export class QuizManagementService {
 
         this.onUpdateStatistics();
         this.clearObjects();
-        this.router.navigate(['/quiz-on'])
-          .then(() => {
-            window.location.reload();
-          });
+        this.router.navigate(['/quiz-on']);
       },
       error: (error) => console.log('Error while adding Quiz: ', error)
     });

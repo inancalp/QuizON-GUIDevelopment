@@ -1,105 +1,11 @@
-<div class="card mb-3">
-  <div class="card-header">Quiz Details:</div>
-  <div class="card-body">
-    <!-- Quiz Details goes here -->
-    <form>
-      <div class="mb-3">
-        <label for="quizTitle" class="form-label fw-bold">Quiz Title:</label>
-        <input type="text" class="form-control" id="quizTitle" name="quizTitle" aria-describedby="quizTitle" [(ngModel)]="quizManagementService.quiz.title">
-      </div>
-      <div class="mb-3">
-        <label for="courseName" class="form-label fw-bold">Course Name:</label>
-        <div class="d-flex">
-          <input type="text" class="form-control" id="courseName" name="courseName" aria-describedby="courseName" [(ngModel)]="quizManagementService.quiz.courseName">
-        </div>
-      </div>
-    </form>
-    <div class="d-flex align-items-center">
-      <p class="fw-bold me-2">Amount of Questions: </p>
-      <p class="fs-2"> {{quizManagementService.quiz.questions.length}} </p>
-    </div>
-  </div>
+<div>
+  <app-quiz-form
+    [quiz]="quizManagementService.quiz"
+    [question]="quizManagementService.question"
+    [questionButtonText]="quizManagementService.questionButtonText"
+    (appendQuestion)="quizManagementService.appendQuestion()"
+    (onSubmit)="quizManagementService.onSubmitEdit()"
+    (onEditClick)="quizManagementService.onEditClick($event)"
+    (onDeleteClick)="quizManagementService.onDeleteClick($event)"
+  ></app-quiz-form>
 </div>
-
-
-<form>
-  <div class="mb-3">
-    <label for="question" class="form-label fw-bold">Question:</label>
-    <input type="text" class="form-control" id="question" aria-describedby="question" name="question" [(ngModel)]="quizManagementService.question.question">
-  </div>
-  <div class="mb-3">
-    <label for="answerA" class="form-label fw-bold">Answer (A)</label>
-    <div class="d-flex">
-      <input type="radio" class="me-2" name="correctAnswer" [(ngModel)]="quizManagementService.question.correctAnswer" value="answerA">
-      <input type="text" class="form-control" id="answerA" name="answerA" aria-describedby="answerA" [(ngModel)]="quizManagementService.question.answerA">
-    </div>
-  </div>
-  <div class="mb-3">
-    <label for="answerB" class="form-label fw-bold">Answer (B)</label>
-    <div class="d-flex">
-      <input type="radio" class="me-2" name="correctAnswer" [(ngModel)]="quizManagementService.question.correctAnswer" value="answerB">
-      <input type="text" class="form-control" id="answerB" name="answerB" aria-describedby="answerB" [(ngModel)]="quizManagementService.question.answerB">
-    </div>
-  </div>
-  <div class="mb-3">
-    <label for="answerC" class="form-label fw-bold">Answer (C)</label>
-    <div class="d-flex">
-      <input type="radio" class="me-2" name="correctAnswer" [(ngModel)]="quizManagementService.question.correctAnswer" value="answerC">
-      <input type="text" class="form-control" id="answerC" name="answerC" aria-describedby="answerC" [(ngModel)]="quizManagementService.question.answerC">
-    </div>
-  </div>
-  <div class="mb-3">
-    <label for="answerD" class="form-label fw-bold">Answer (D)</label>
-    <div class="d-flex">
-      <input type="radio" class="me-2" name="correctAnswer" [(ngModel)]="quizManagementService.question.correctAnswer" value="answerD">
-      <input type="text" class="form-control" id="answerD" name="answerD" aria-describedby="answerD" [(ngModel)]="quizManagementService.question.answerD">
-    </div>
-  </div>
-  <div class="d-flex justify-content-end">
-    <button type="button" class="btn btn-secondary me-2" (click)="quizManagementService.appendQuestion()">{{ quizManagementService.questionButtonText }}</button>
-    <button type="submit" class="btn btn-primary" (click)="quizManagementService.onSubmitEdit()">Submit</button>
-  </div>
-</form>
-
-
-
-<hr class="my-4">
-
-<!-- Bootstrap Accordion Example -->
-<div class="accordion" id="accordionQuestions">
-  <p>Before submitting the quiz, checking the written questions once more before is highly recommended, as well as starting to check them from bottom to top too! (CHANGE LATER)</p>
-  <div *ngFor="let question of quizManagementService.quiz.questions; let i = index">
-    <div class="accordion-item mb-2">
-      <h2 class="accordion-header" [id]="'heading' + i">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="false" [attr.aria-controls]="'collapse' + i">
-          Question {{ i + 1 }}:
-        </button>
-      </h2>
-      <div [id]="'collapse' + i" class="accordion-collapse collapse mt-2" [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionQuestions">
-        <div class="accordion-body">
-          <div>
-            <strong>Question:</strong>
-            <p style="word-wrap: break-word;">{{quizManagementService.quiz.questions[i].question}}</p>
-            <strong>Answer (A):</strong>
-            <p style="word-wrap: break-word;">{{quizManagementService.quiz.questions[i].answerA}}</p>
-            <strong>Answer (B):</strong>
-            <p style="word-wrap: break-word;">{{quizManagementService.quiz.questions[i].answerB}}</p>
-            <strong>Answer (C):</strong>
-            <p style="word-wrap: break-word;">{{quizManagementService.quiz.questions[i].answerC}}</p>
-            <strong>Answer (D):</strong>
-            <p style="word-wrap: break-word;">{{quizManagementService.quiz.questions[i].answerD}}</p>
-            <strong>Correct Answer:</strong>
-            <p style="word-wrap: break-word;">{{ quizManagementService.generateCorrectAnswer(quizManagementService.quiz.questions[i]) }}
-            </p>
-          </div>
-          <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-warning me-2" (click)="quizManagementService.onEditClick(i)">Edit</button>
-            <button type="button" class="btn btn-danger" (click)="quizManagementService.onDeleteClick(i)">Delete</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-

@@ -11,7 +11,7 @@
           "answerC": "c-2",
           "answerD": "d-2",
           "correctAnswer": "answerC",
-          "selectedAnswer": "answerA",
+          "selectedAnswer": "",
           "id": 0
         },
         {
@@ -21,7 +21,7 @@
           "answerC": "d-3",
           "answerD": "sd-3",
           "correctAnswer": "answerC",
-          "selectedAnswer": "answerA",
+          "selectedAnswer": "",
           "id": 2
         },
         {
@@ -31,7 +31,7 @@
           "answerC": "qqqq",
           "answerD": "qqqqq",
           "correctAnswer": "answerD",
-          "selectedAnswer": "answerA",
+          "selectedAnswer": "",
           "id": 2
         }
       ],
@@ -63,16 +63,960 @@
         }
       ],
       "id": 2
+    },
+    {
+      "title": "emitterQuiz1112341234123412345132452345",
+      "courseName": "emitterCourse",
+      "questions": [
+        {
+          "question": "q",
+          "answerA": "q",
+          "answerB": "qq",
+          "answerC": "qqq",
+          "answerD": "qqqq",
+          "correctAnswer": "answerA",
+          "selectedAnswer": "",
+          "id": 0
+        },
+        {
+          "question": "a",
+          "answerA": "aa",
+          "answerB": "aaa",
+          "answerC": "aaaa",
+          "answerD": "aaaaa",
+          "correctAnswer": "answerB",
+          "selectedAnswer": "",
+          "id": 1
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 2
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 3
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 4
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 5
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 6
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 7
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 8
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 9
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 10
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 11
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 12
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 13
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 14
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 15
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 16
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 17
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 18
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 19
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 20
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 21
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 22
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 23
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 24
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 25
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 26
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 27
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 28
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 29
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 30
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 31
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 32
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 33
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 34
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 35
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 36
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 37
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 38
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 39
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 40
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 41
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 42
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 43
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 44
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 45
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 46
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 47
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 48
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 49
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 50
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 51
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 52
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 53
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 54
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 55
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 56
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 57
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 58
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 59
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 60
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 61
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 62
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 63
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 64
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 65
+        }
+      ],
+      "id": 3
+    },
+    {
+      "title": "HALLO",
+      "courseName": "",
+      "questions": [
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 0
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 1
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 2
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 3
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 4
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 5
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 6
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 7
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 8
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 9
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 10
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 11
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 12
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 13
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 14
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 15
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 16
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 17
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 18
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 19
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 20
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 21
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 22
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 23
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 24
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 25
+        },
+        {
+          "question": "",
+          "answerA": "",
+          "answerB": "",
+          "answerC": "",
+          "answerD": "",
+          "correctAnswer": "",
+          "selectedAnswer": "",
+          "id": 26
+        }
+      ],
+      "id": 4
     }
   ],
   "statistics": [
     {
-      "totalQuizMade": 5,
-      "totalQuizEdited": 19,
-      "totalQuestionsMade": 6,
-      "avgAmountQuestionsPerQuiz": 1.1666666666666667,
-      "totalQuizFinished": 15,
-      "totalSolvedQuestions": 43,
+      "totalQuizMade": 8,
+      "totalQuizEdited": 26,
+      "totalQuestionsMade": 99,
+      "avgAmountQuestionsPerQuiz": 14,
+      "totalQuizFinished": 18,
+      "totalSolvedQuestions": 48,
       "totalCorrectAnswers": 17,
       "id": 0
     }

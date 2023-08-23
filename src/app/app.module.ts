@@ -13,6 +13,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { ResultsComponent } from './results/results.component';
 import { RoundPipe } from './round.pipe';
 import { EditQuizComponent } from './edit-quiz/edit-quiz.component';
+import { QuizFormComponent } from './quiz-form/quiz-form.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { EditQuizComponent } from './edit-quiz/edit-quiz.component';
     QuizComponent,
     ResultsComponent,
     RoundPipe,
-    EditQuizComponent
+    EditQuizComponent,
+    QuizFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ import { QuizManagementService } from '../quiz-management.service';
 export class EditQuizComponent {
 
 
-  constructor(protected quizManagementService: QuizManagementService, private route: ActivatedRoute,) {}
+  constructor(protected quizManagementService: QuizManagementService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.paramMap
