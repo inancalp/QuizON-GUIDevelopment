@@ -3,9 +3,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { QuizzesService } from '../quizzes.service';
 import { Quiz } from '../quiz.model';
 import { Question } from '../question.model';
-import { StatisticsService } from '../statistics.service';
-import { Statistics } from '../statistics.model';
-import { QuizManagementService } from '../quiz-management.service';
+import { OperationType } from '../enum';
 
 @Component({
   selector: 'app-edit-quiz',
@@ -16,17 +14,28 @@ import { QuizManagementService } from '../quiz-management.service';
 
 export class EditQuizComponent {
 
+  quiz: Quiz = new Quiz();
+  initialQuestionAmount = 0;
+  protected operationType = OperationType;
 
-  constructor(protected quizManagementService: QuizManagementService, private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private quizzesService: QuizzesService) {}
 
   ngOnInit(): void {
     this.route.paramMap
       .subscribe((params: ParamMap) => {
-        this.quizManagementService.onLoadQuiz(+params.get('quizId')!);
+        this.onLoadQuiz(+params.get('quizId')!);
       });
+  }
 
-      // apply Statistics
-      this.quizManagementService.onGetStatistics();
+  onLoadQuiz(id: number): void {
+    this.quizzesService.getQuizById(id).subscribe({
+      next: (response: Quiz) => {
+        console.log('/edit-quiz | Quiz Loaded: ', response);
+        this.quiz = response;
+        this.initialQuestionAmount = this.quiz.questions.length;
+      },
+      error: (error) => console.log('Error while loading the Quiz: ', error)
+    });
   }
 
 }

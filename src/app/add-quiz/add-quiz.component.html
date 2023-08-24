@@ -1,11 +1,9 @@
 <div>
   <app-quiz-form
-    [quiz]="quizManagementService.quiz"
-    [question]="quizManagementService.question"
-    [questionButtonText]="quizManagementService.questionButtonText"
-    (appendQuestion)="quizManagementService.appendQuestion()"
-    (onSubmit)="quizManagementService.onSubmitAdd()"
-    (onEditClick)="quizManagementService.onEditClick($event)"
-    (onDeleteClick)="quizManagementService.onDeleteClick($event)"
+    [operationType]="operationType.AddQuiz"
   ></app-quiz-form>
 </div>
+
+
+<!--
+    (onSubmit)="quizManagementService.onSubmit()" -->

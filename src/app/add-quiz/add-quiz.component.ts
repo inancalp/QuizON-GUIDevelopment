@@ -1,12 +1,7 @@
 import { Quiz } from '../quiz.model';
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question.model';
-import { QuizzesService } from '../quizzes.service';
-import { StatisticsService } from '../statistics.service';
-import { Statistics } from '../statistics.model';
-import { QuizManagementService } from '../quiz-management.service';
+import { OperationType } from '../enum';
 
 @Component({
   selector: 'app-add-quiz',
@@ -15,12 +10,11 @@ import { QuizManagementService } from '../quiz-management.service';
 })
 export class AddQuizComponent {
 
-  constructor(protected quizManagementService: QuizManagementService) {}
+  // quiz: Quiz = new Quiz();
+  // question: Question = new Question();
+  protected operationType = OperationType;
 
-  ngOnInit(): void {
-    // apply Statistics
-    this.quizManagementService.onGetStatistics();
-    this.quizManagementService.clearObjects();
-  }
+  constructor() {}
+  ngOnInit(): void {}
 
 }
