@@ -5,48 +5,59 @@
     <form>
       <div class="mb-3">
         <label for="quizTitle" class="form-label fw-bold">Quiz Title:</label>
-        <input type="text" class="form-control" id="quizTitle" name="quizTitle" aria-describedby="quizTitle" [(ngModel)]="quiz.title">
+        <input type="text" class="form-control" id="quizTitle" name="quizTitle" aria-describedby="quizTitle" [(ngModel)]="quiz.title" [ngClass]="{'border-danger': !quizTitle_filled}" [placeholder]="quizTitle_filled ? '' : 'Needs to be filled'">
       </div>
     </form>
-    <div class="d-flex align-items-center">
-      <p class="fw-bold me-2">Amount of Questions: </p>
-      <p class="fs-3"> {{quiz.questions.length}} </p>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center">
+        <p class="fw-bold me-2">Amount of Questions: </p>
+        <p> {{quiz.questions.length}} </p>
+      </div>
+      <div class="pe-2 text-danger fw-bold" [hidden]="messageIsHidden">
+        <p>{{ message }}</p>
+      </div>
     </div>
+
   </div>
 </div>
 
 
 <form>
+  <!--  -->
   <div class="mb-3">
-    <label for="question" class="form-label fw-bold">Question:</label>
-    <input type="text" class="form-control" id="question" name="question" aria-describedby="question"  [(ngModel)]="question.question">
+    <label for="question" class="form-label">Question:</label>
+    <input type="text" class="form-control" id="question" name="question" aria-describedby="question"
+           [(ngModel)]="question.question"
+           [ngClass]="{'border-danger': !questionFilled}" [placeholder]="questionFilled ? '' : 'Needs to be filled'">
   </div>
+  <!--  -->
+
   <div class="mb-3">
-    <label for="answerA" class="form-label fw-bold">Answer (A)</label>
+    <label for="answerA" class="form-label">Answer (A)</label>
     <div class="d-flex">
       <input type="radio" class="me-2" name="correctAnswer" [(ngModel)]="question.correctAnswer" value="answerA">
-      <input type="text" class="form-control" id="answerA" name="answerA" aria-describedby="answerA" [(ngModel)]="question.answerA">
+      <input type="text" class="form-control" id="answerA" name="answerA" aria-describedby="answerA" [(ngModel)]="question.answerA" [ngClass]="{'border-danger': !answerA_filled}" [placeholder]="answerA_filled ? '' : 'Needs to be filled'">
     </div>
   </div>
   <div class="mb-3">
-    <label for="answerB" class="form-label fw-bold">Answer (B)</label>
+    <label for="answerB" class="form-label">Answer (B)</label>
     <div class="d-flex">
       <input type="radio" class="me-2" name="correctAnswer" [(ngModel)]="question.correctAnswer" value="answerB">
-      <input type="text" class="form-control" id="answerB" name="answerB" aria-describedby="answerB" [(ngModel)]="question.answerB">
+      <input type="text" class="form-control" id="answerB" name="answerB" aria-describedby="answerB" [(ngModel)]="question.answerB" [ngClass]="{'border-danger': !answerB_filled}" [placeholder]="answerB_filled ? '' : 'Needs to be filled'">
     </div>
   </div>
   <div class="mb-3">
-    <label for="answerC" class="form-label fw-bold">Answer (C)</label>
+    <label for="answerC" class="form-label">Answer (C)</label>
     <div class="d-flex">
       <input type="radio" class="me-2" name="correctAnswer" [(ngModel)]="question.correctAnswer" value="answerC">
-      <input type="text" class="form-control" id="answerC" name="answerC" aria-describedby="answerC" [(ngModel)]="question.answerC">
+      <input type="text" class="form-control" id="answerC" name="answerC" aria-describedby="answerC" [(ngModel)]="question.answerC" [ngClass]="{'border-danger': !answerC_filled}" [placeholder]="answerC_filled ? '' : 'Needs to be filled'">
     </div>
   </div>
   <div class="mb-3">
-    <label for="answerD" class="form-label fw-bold">Answer (D)</label>
+    <label for="answerD" class="form-label">Answer (D)</label>
     <div class="d-flex">
       <input type="radio" class="me-2" name="correctAnswer" [(ngModel)]="question.correctAnswer" value="answerD">
-      <input type="text" class="form-control" id="answerD" name="answerD" aria-describedby="answerD" [(ngModel)]="question.answerD">
+      <input type="text" class="form-control" id="answerD" name="answerD" aria-describedby="answerD" [(ngModel)]="question.answerD" [ngClass]="{'border-danger': !answerD_filled}" [placeholder]="answerD_filled ? '' : 'Needs to be filled'">
     </div>
   </div>
   <div class="d-flex justify-content-end">
@@ -72,7 +83,10 @@
 
 <!-- Bootstrap Accordion Example -->
 <div class="accordion" id="accordionQuestions">
-  <p>Before submitting the quiz, checking the written questions once more before is highly recommended, as well as starting to check them from bottom to top too! (CHANGE LATER)</p>
+  <h1 class="fs-5 fw-bold">Questions: </h1>
+  <div *ngIf="!quiz.questions.length">
+    <p>No questions added yet!</p>
+  </div>
   <div *ngFor="let question of quiz.questions; let i = index">
     <div class="accordion-item mb-2">
       <h2 class="accordion-header" [id]="'heading' + i">

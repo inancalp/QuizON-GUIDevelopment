@@ -24,25 +24,118 @@ export class QuizFormComponent {
   editClicked: boolean = false;
   questionButtonText: string = "Add the Question";
 
+  questionFilled: boolean = true;
+  answerA_filled: boolean = true;
+  answerB_filled: boolean = true;
+  answerC_filled: boolean = true;
+  answerD_filled: boolean = true;
+  quizTitle_filled: boolean = true;
+  correctAnswer_filled: boolean = true;
+  messageIsHidden: boolean = true;
+  message: string = "";
+
   constructor( private quizzesService: QuizzesService, private router: Router, private statisticsService: StatisticsService) {}
 
   ngOnInit(): void {
     this.onGetStatistics();
   }
 
+  evaluateQuiz(): boolean {
+
+    let result: boolean = true;
+
+    if(this.quiz.questions.length < 3){
+      this.message = "At least 3 questions needed.";
+      this.messageIsHidden = false;
+      result = false;
+      return result;
+    } else {
+      this.messageIsHidden = true;
+      result = true;
+    }
+
+    if(this.quiz.title.trim() == ""){
+      this.quizTitle_filled = false;
+      result = false;
+    } else {
+      this.quizTitle_filled = true;
+      result = true;
+    }
+
+    return result;
+  }
 
   onSubmit() {
-    switch (this.operationType) {
-      case OperationType.EditQuiz:
-        this.onEditQuiz();
-        break;
-      case OperationType.AddQuiz:
-        this.onAddQuiz();
-        break;
-      default:
-        break;
+
+    if(this.evaluateQuiz()) {
+      this.messageIsHidden = true;
+      switch (this.operationType) {
+        case OperationType.EditQuiz:
+          this.onEditQuiz();
+          break;
+        case OperationType.AddQuiz:
+          this.onAddQuiz();
+          break;
+        default:
+          break;
+      }
     }
   }
+
+  evaluateQuestion(): boolean {
+
+    let result: boolean = true;
+    let questionValidation: boolean[] = [];
+    let question: string[] = [
+      this.question.question,
+      this.question.answerA,
+      this.question.answerB,
+      this.question.answerC,
+      this.question.answerD,
+      this.question.correctAnswer,
+    ];
+
+    for (let i = 0; i < question.length; i++) {
+      if(question[i].trim() == "") {
+        questionValidation[i] = false;
+        result = false;
+      } else {
+        questionValidation[i]  = true;
+        result = true;
+      }
+    }
+
+    this.questionFilled = questionValidation[0];
+    this.answerA_filled = questionValidation[1];
+    this.answerB_filled = questionValidation[2];
+    this.answerC_filled = questionValidation[3];
+    this.answerD_filled = questionValidation[4];
+    this.correctAnswer_filled = questionValidation[5];
+
+    if(this.correctAnswer_filled == false ) {
+      this.message = "Please select the correct answer.";
+      this.messageIsHidden = false;
+    } else {
+      this.messageIsHidden = true;
+    }
+
+
+    return result;
+  }
+
+  appendQuestion() {
+    // new question to create new instances within the memory.
+    if(this.evaluateQuestion()){
+      let newQuestion = new Question();
+      this.fillInNewQuestion(newQuestion, this.questionIndexValue);
+      this.quiz.questions[this.questionIndexValue] = newQuestion;
+      this.activateAddQuestionMode();
+      this.clearQuestionObject();
+    }
+  }
+
+
+
 
 
   onEditQuiz() {
@@ -70,6 +163,7 @@ export class QuizFormComponent {
 
 
   onUpdateStatistics(operationType: OperationType) {
+
     switch (operationType) {
       case OperationType.EditQuiz:
         this.statistics.totalQuizEdited++;
@@ -81,11 +175,6 @@ export class QuizFormComponent {
       default:
         break;
     }
-
-    // this.statistics.totalQuestionsDeleted++;
-    // this.statistics.currentAmountQuestions--;
-
-
 
     this.statistics.currentAmountQuestions += (this.quiz.questions.length - this.initialQuestionAmount);
     this.statistics.avgAmountQuestionsPerQuiz = (this.statistics.currentAmountQuestions) / (this.statistics.currentQuizAmount);
@@ -156,16 +245,7 @@ export class QuizFormComponent {
     this.questionIndexValue = this.quiz.questions.length;
   }
 
-  appendQuestion() {
-    // new question to create new instances within the memory.
-    let newQuestion = new Question();
 
-    this.fillInNewQuestion(newQuestion, this.questionIndexValue);
-    this.quiz.questions[this.questionIndexValue] = newQuestion;
-
-    this.activateAddQuestionMode();
-    this.clearQuestionObject();
-  }
 
   fillInNewQuestion(newQuestion: Question, questionId: number) {
     newQuestion.question = this.question.question;

@@ -2,24 +2,24 @@
   "quizzes": [],
   "statistics": [
     {
-      "totalQuizMade": 3,
-      "totalQuizEdited": 3,
-      "totalQuestionsMade": 15,
-      "avgAmountQuestionsPerQuiz": 4,
+      "totalQuizMade": 0,
+      "totalQuizEdited": 0,
+      "totalQuestionsMade": 0,
+      "avgAmountQuestionsPerQuiz": 0,
       "totalQuizFinished": 0,
       "totalSolvedQuestions": 0,
       "totalCorrectAnswers": 0,
-      "notesEdited": 12,
-      "totalQuizDeleted": 3,
+      "notesEdited": 0,
+      "totalQuizDeleted": 0,
       "currentQuizAmount": 0,
-      "totalQuestionsDeleted": 15,
+      "totalQuestionsDeleted": 0,
       "currentAmountQuestions": 0,
       "id": 0
     }
   ],
   "notes": [
     {
-      "notes": "  - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum.\n    - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum.\n  - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum.\n  - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum.",
+      "notes": "",
       "id": 0
     }
   ]
