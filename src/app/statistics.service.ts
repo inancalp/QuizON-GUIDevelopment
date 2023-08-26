@@ -13,7 +13,6 @@ export class StatisticsService {
 
   constructor(private http: HttpClient) {}
 
-  // change to the
   getStatistics(): Observable<Statistics[]> {
     const url = 'http://localhost:3000/statistics/';
     return this.http.get<Statistics[]>(url);

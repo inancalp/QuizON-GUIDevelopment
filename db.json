@@ -1,69 +1,22 @@
 {
-  "quizzes": [
-    {
-      "title": "quiz",
-      "courseName": "",
-      "questions": [
-        {
-          "question": "ttt",
-          "answerA": "ggg",
-          "answerB": "bbb",
-          "answerC": "uuu",
-          "answerD": "jjj",
-          "correctAnswer": "answerA",
-          "selectedAnswer": "answerA",
-          "id": 0
-        },
-        {
-          "question": "hello!",
-          "answerA": "answer here",
-          "answerB": "",
-          "answerC": "no its here!",
-          "answerD": "",
-          "correctAnswer": "answerC",
-          "selectedAnswer": "answerC",
-          "id": 1
-        }
-      ],
-      "id": 1
-    },
-    {
-      "title": "new-quiz",
-      "courseName": "",
-      "questions": [
-        {
-          "question": "kk",
-          "answerA": "ll",
-          "answerB": "mm",
-          "answerC": "pp",
-          "answerD": "jj",
-          "correctAnswer": "answerA",
-          "selectedAnswer": "answerA",
-          "id": 0
-        },
-        {
-          "question": "EDIT",
-          "answerA": "1",
-          "answerB": "2",
-          "answerC": "3",
-          "answerD": "4",
-          "correctAnswer": "answerA",
-          "selectedAnswer": "answerD",
-          "id": 1
-        }
-      ],
-      "id": 2
-    }
-  ],
+  "quizzes": [],
   "statistics": [
     {
-      "totalQuizMade": 3,
-      "totalQuizEdited": 4,
-      "totalQuestionsMade": 12,
-      "avgAmountQuestionsPerQuiz": 3.5,
-      "totalQuizFinished": 4,
-      "totalSolvedQuestions": 8,
-      "totalCorrectAnswers": 7,
+      "totalQuizMade": 53,
+      "totalQuizEdited": 10,
+      "totalQuestionsMade": 78,
+      "avgAmountQuestionsPerQuiz": 1.4444444444444444,
+      "totalQuizFinished": 11,
+      "totalSolvedQuestions": 31,
+      "totalCorrectAnswers": 22,
+      "notesEdited": 17,
+      "totalQuizDeleted": 3,
+      "id": 0
+    }
+  ],
+  "notes": [
+    {
+      "notes": "  - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum.\n   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum.",
       "id": 0
     }
   ]

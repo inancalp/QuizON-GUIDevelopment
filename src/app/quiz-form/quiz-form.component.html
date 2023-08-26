@@ -7,16 +7,10 @@
         <label for="quizTitle" class="form-label fw-bold">Quiz Title:</label>
         <input type="text" class="form-control" id="quizTitle" name="quizTitle" aria-describedby="quizTitle" [(ngModel)]="quiz.title">
       </div>
-      <div class="mb-3">
-        <label for="courseName" class="form-label fw-bold">Course Name:</label>
-        <div class="d-flex">
-          <input type="text" class="form-control" id="courseName" name="courseName" aria-describedby="courseName" [(ngModel)]="quiz.courseName">
-        </div>
-      </div>
     </form>
     <div class="d-flex align-items-center">
       <p class="fw-bold me-2">Amount of Questions: </p>
-      <p class="fs-2"> {{quiz.questions.length}} </p>
+      <p class="fs-3"> {{quiz.questions.length}} </p>
     </div>
   </div>
 </div>
@@ -58,12 +52,17 @@
   <div class="d-flex justify-content-end">
     <!-- NEED ALTERNATIVE TO "question.id" -->
     <div *ngIf="questionButtonText == 'Edit the Question'">
-      <button type="button" class="btn btn-secondary me-2" (click)="appendQuestion()">{{ questionButtonText }} {{questionIndexValue + 1}}</button>
+      <button type="button" class="btn btn-secondary me-2" (click)="appendQuestion()">
+        <app-svg-edit></app-svg-edit>
+        {{ questionButtonText }} {{questionIndexValue + 1}}</button>
       <button type="button" class="btn btn-danger me-2" [disabled]="false" (click)="onCancelClicked()">Cancel Edit</button>
     </div>
     <div *ngIf="questionButtonText == 'Add the Question'">
-      <button type="button" class="btn btn-secondary me-2" (click)="appendQuestion()">{{ questionButtonText }}</button>
-      <button type="button" class="btn btn-danger me-2" [disabled]="true" (click)="onCancelClicked()">Cancel Edit</button>
+      <button type="button" class="btn btn-secondary me-2" (click)="appendQuestion()">
+        <app-svg-add></app-svg-add>
+        {{ questionButtonText }}
+      </button>
+      <button type="button" class="btn btn-danger me-2" [hidden]="true" (click)="onCancelClicked()">Cancel Edit</button>
     </div>
     <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
   </div>
@@ -98,8 +97,12 @@
             <p style="word-wrap: break-word;">{{ generateCorrectAnswer(quiz.questions[i]) }}</p>
           </div>
           <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-warning me-2" (click)="onEditQuestionClicked(i)">Edit</button>
-            <button type="button" class="btn btn-danger" (click)="onDeleteClicked(i)">Delete</button>
+            <button type="button" class="btn btn-warning me-2" (click)="onEditQuestionClicked(i)">
+              <app-svg-edit></app-svg-edit>
+            </button>
+            <button type="button" class="btn btn-danger" (click)="onDeleteClicked(i)">
+              <app-svg-delete></app-svg-delete>
+            </button>
           </div>
         </div>
       </div>

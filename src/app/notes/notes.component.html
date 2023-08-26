@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="d-flex justify-content-end mt-2">
+    <div class="d-flex">
+      <button class="btn btn-primary me-2" (click)="saveNotes()" [hidden]="!editing">Save</button>
+      <button class="btn btn-secondary me-2" (click)="cancelSaveNotes()" [hidden]="!editing">Cancel</button>
+      <button class="btn btn-secondary" (click)="toggleEdit()" [disabled]="editing">
+        <app-svg-edit></app-svg-edit>
+        Edit Notes
+      </button>
+    </div>
+  </div>
+  <hr>
+  <div class="fs-2">
+      <h1>Notes:</h1>
+  </div>
+  <div *ngIf="!editing" class="fs-5 px-2" [innerHTML]="notes.notes | lineBreaks"></div>
+  <div *ngIf="editing" class="fs-5">
+      <textarea class="form-control fs-5" style="white-space: pre-wrap;" rows="14" [(ngModel)]="editedNotes.notes"></textarea>
+  </div>
+</div>

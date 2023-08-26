@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Quiz } from '../quiz.model';
 import { QuizzesService } from '../quizzes.service';
+import { ComponentName } from '../enum';
+import { StatisticsService } from '../statistics.service';
+import { Statistics } from '../statistics.model';
 
 @Component({
   selector: 'app-quiz-on',
@@ -10,21 +13,17 @@ import { QuizzesService } from '../quizzes.service';
 })
 export class QuizOnComponent {
 
-  quizzes: Quiz[];
+  quizzes: Quiz[] = [];
+  statistics: Statistics = new Statistics();
+  protected componentName = ComponentName;
 
-  constructor(private router: Router, private quizzesService: QuizzesService) {
-    this.quizzes = [];
-  }
+
+
+  constructor(private router: Router, private quizzesService: QuizzesService, private statisticsService: StatisticsService) {}
 
   ngOnInit(): void {
     this.onGetQuizzes();
-  }
-
-
-  onAddQuizClicked()
-  {
-    // console.log("onAddQuizClicked works!");
-    this.router.navigate(['/quiz-on/add-quiz']);
+    this.onGetStatistics();
   }
 
   onGetQuizzes(): void {
@@ -38,18 +37,22 @@ export class QuizOnComponent {
     });
   }
 
+  navigateToAddQuiz()
+  {
+    this.router.navigate(['/add-quiz']);
+  }
+
   navigateToQuiz(quizId: number)
   {
-    this.router.navigate(['/quiz-on/quiz', quizId]);
+    this.router.navigate(['/quiz', quizId]);
   }
 
   deleteQuiz(quizId: number) {
-    confirm('Are you sure you want to delete the Quiz?');
     this.quizzesService.deleteQuiz(quizId).subscribe(
       (response: any) => {
         console.log('Quiz Deleted: ', response);
-        this.quizzesService.getQuizzes();
-        this.router.navigate(['/quiz-on'])
+        this.onUpdateStatistics();
+        this.router.navigate(['/'])
           // to be able to refresh the page, so deleted quiz is not visible anymore.
           .then(() => {
             window.location.reload();
@@ -59,6 +62,46 @@ export class QuizOnComponent {
   }
 
   editQuiz(quizId: number) {
-    this.router.navigate(['/quiz-on/edit-quiz', quizId]);
+    this.router.navigate(['/edit-quiz', quizId]);
+  }
+
+
+  deleteClicked(i: number, event: Event)
+  {
+    //to prevent the click event from spreading to the parent container.
+    event.stopPropagation();
+
+    this.quizzes[i].deleteClicked = true;
+    setTimeout(() => {
+      this.quizzes[i].deleteClicked = false;
+      }, this.quizzes[i].deleteTimer);
+  }
+
+  onGetStatistics() {
+    this.statisticsService.getStatistics().subscribe({
+      next: (response: Statistics[]) => {
+        console.log('statistics.service.getStatistics() Works!: ', response);
+        this.statistics = response[0];
+        console.log('statistics.service.statistics Object within onGetStatistics(): ', this.statistics);
+      },
+      error: (error) => {
+        console.log('statistics.service.getStatistics() Does Not Work!: ', error);
+      }
+    });
+  }
+
+
+  onUpdateStatistics() {
+    this.statistics.totalQuizDeleted++;
+
+    this.statisticsService.updateStatistics(this.statistics).subscribe(
+      (response: Statistics) => {
+        console.log('statistics.service.updateStatistics() Works!: ', response);
+        this.router.navigate(['/'])
+        .then(() => {
+          window.location.reload();
+        });
+        }
+    )
   }
 }

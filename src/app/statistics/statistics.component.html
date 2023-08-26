@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="mb-2">
+    <h1>Statistics:</h1>
+  </div>
+  <div>
+    <table class="table table-striped fs-5">
+      <tbody>
+        <tr>
+          <th>Notes Edited:</th>
+          <th>{{ this.statistics.notesEdited }}</th>
+        </tr>
+        <tr>
+          <th>Total Quizzes Made:</th>
+          <th>{{ this.statistics.totalQuizMade }}</th>
+        </tr>
+        <tr>
+          <th>Total Quizzes Edited:</th>
+          <th>{{ this.statistics.totalQuizEdited }}</th>
+        </tr>
+        <tr>
+          <th>Total Quizzes Deleted:</th>
+          <th>{{ this.statistics.totalQuizDeleted }}</th>
+        </tr>
+        <tr>
+          <th>Total Questions Made:</th>
+          <th>{{ this.statistics.totalQuestionsMade }}</th>
+        </tr>
+        <tr>
+          <th>Average Amount of Questions per Quiz:</th>
+          <th>{{ this.statistics.avgAmountQuestionsPerQuiz | round }}</th>
+        </tr>
+        <tr>
+          <th>Total Quizzes Finished:</th>
+          <th>{{ this.statistics.totalQuizFinished }}</th>
+        </tr>
+        <tr>
+          <th>Total Solved Questions:</th>
+          <th>{{ this.statistics.totalSolvedQuestions }}</th>
+        </tr>
+        <tr>
+          <th>Total Correct Answers:</th>
+          <th>{{ this.statistics.totalCorrectAnswers }}</th>
+        </tr>
+        <tr>
+          <th>Success Ratio:</th>
+          <th>{{ this.statistics.totalCorrectAnswers / this.statistics.totalSolvedQuestions | number:'1.2-2'}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

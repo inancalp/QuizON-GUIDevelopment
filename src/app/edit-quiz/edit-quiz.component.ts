@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { QuizzesService } from '../quizzes.service';
 import { Quiz } from '../quiz.model';
 import { Question } from '../question.model';
-import { OperationType } from '../enum';
+import { OperationType, ComponentName } from '../enum';
 
 @Component({
   selector: 'app-edit-quiz',
@@ -17,6 +17,7 @@ export class EditQuizComponent {
   quiz: Quiz = new Quiz();
   initialQuestionAmount = 0;
   protected operationType = OperationType;
+  protected componentName = ComponentName;
 
   constructor(private route: ActivatedRoute, private quizzesService: QuizzesService) {}
 

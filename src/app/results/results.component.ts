@@ -3,6 +3,7 @@ import { Quiz } from '../quiz.model';
 import { QuizzesService } from '../quizzes.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Question } from '../question.model';
+import { ComponentName } from '../enum';
 
 @Component({
   selector: 'app-results',
@@ -12,6 +13,7 @@ import { Question } from '../question.model';
 export class ResultsComponent {
 
   quiz: Quiz = new Quiz();
+  protected componentName = ComponentName;
 
   constructor(private quizzesService: QuizzesService, private route: ActivatedRoute, private router: Router) {}
 
@@ -78,6 +80,6 @@ export class ResultsComponent {
   }
 
   onReturnQuizOnClicked() {
-    this.router.navigate(['/quiz-on']);
+    this.router.navigate(['/']);
   }
 }

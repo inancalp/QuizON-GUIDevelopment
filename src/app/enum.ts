@@ -4,9 +4,9 @@ export enum OperationType {
   AddQuiz
 }
 
-export enum Answer {
-  answerA,
-  answerB,
-  answerC,
-  answerD
+export enum ComponentName {
+  NullComponent,
+  AddQuiz,
+  MainPage,
+  EditNotes
 }

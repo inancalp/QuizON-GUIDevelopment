@@ -1,25 +1,16 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">StudyON Express</a>
-    <!-- Navbar content here -->
+    <a class="navbar-brand fs-2" href="/">QuizON Express
+      <app-svg-logo></app-svg-logo>
+    </a>
   </div>
 </nav>
-<div class="p-4">
-  <ul class="nav nav-tabs nav-fill">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="main-page" [routerLinkActive]="'active'">MainPage</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="my-notes" [routerLinkActive]="'active'">MyNotes</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="quiz-on" [routerLinkActive]="'active'">QuizON</a>
-    </li>
-  </ul>
-  <div class="border border-top-0 p-4">
-      <router-outlet></router-outlet>
+<body>
+  <div class="container">
+    <router-outlet></router-outlet>
   </div>
-</div>
+</body>
+
 
 
 

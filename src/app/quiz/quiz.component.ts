@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Quiz } from '../quiz.model';
 import { StatisticsService } from '../statistics.service';
 import { Statistics } from '../statistics.model';
+import { ComponentName } from '../enum';
 
 @Component({
   selector: 'app-quiz',
@@ -21,6 +22,7 @@ export class QuizComponent {
   endIndex = this.pageSize; // Initial value based on page size
   currentPage = 1; // Current page number
 
+  protected componentName = ComponentName;
 
   constructor(private router: Router, private route: ActivatedRoute, private quizzesService: QuizzesService, private statisticsService: StatisticsService) {}
 
@@ -72,38 +74,18 @@ export class QuizComponent {
   }
 
 
-  showResults()
-  {
-
-    let questionsAmount = this.quiz.questions.length;
-    let correctAnswers = 0;
-
-    //statistics update
-    for (let i = 0; i < this.quiz.questions.length; i++) {
-
-      let question = this.quiz.questions[i];
-      if(question.selectedAnswer == question.correctAnswer)
-      {
-        correctAnswers++;
-      }
-    }
-    this.statistics.totalQuizFinished++;
-    this.statistics.totalCorrectAnswers += correctAnswers;
-    this.statistics.totalSolvedQuestions += questionsAmount;
+  showResults() {
     this.onUpdateStatistics();
 
-    // for to update "quiz.questions[n].selectedAnswer" within json.db
     this.quizzesService.updateQuiz(this.quiz).subscribe(
       (response: Quiz) => {
         console.log("Quiz updated: ", response)
-        this.router.navigate(['/quiz-on/quiz', this.quiz.id, 'quiz-results']);
+        this.router.navigate(['/quiz', this.quiz.id, 'quiz-results']);
       });
 
   }
 
   isAllAnswersSelected(): boolean {
-    // every() method iterates through each question's selectedAnswer attribute, and if the attribute returns true for each, every will return true.
-    // since inital value for each question is "", if none answer chosen, it will return false.
     return this.quiz.questions.every(question => question.selectedAnswer);
   }
 
@@ -128,6 +110,23 @@ export class QuizComponent {
   }
 
   onUpdateStatistics() {
+
+    let questionsAmount = this.quiz.questions.length;
+    let correctAnswers = 0;
+
+    for (let i = 0; i < this.quiz.questions.length; i++) {
+
+      let question = this.quiz.questions[i];
+      if(question.selectedAnswer == question.correctAnswer)
+      {
+        correctAnswers++;
+      }
+    }
+
+    this.statistics.totalQuizFinished++;
+    this.statistics.totalCorrectAnswers += correctAnswers;
+    this.statistics.totalSolvedQuestions += questionsAmount;
+
     this.statisticsService.updateStatistics(this.statistics).subscribe(
       (response: Statistics) => {
         console.log('statistics.service.updateStatistics() Works!: ', response);
@@ -135,5 +134,7 @@ export class QuizComponent {
     )
   }
 
-
+  navigateToMainPage() {
+    this.router.navigate(['/']);
+  }
 }

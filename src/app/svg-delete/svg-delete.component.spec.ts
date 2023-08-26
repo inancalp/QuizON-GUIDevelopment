@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MyNotesComponent } from './my-notes.component';
+import { SvgDeleteComponent } from './svg-delete.component';
 
-describe('MyNotesComponent', () => {
-  let component: MyNotesComponent;
-  let fixture: ComponentFixture<MyNotesComponent>;
+describe('SvgDeleteComponent', () => {
+  let component: SvgDeleteComponent;
+  let fixture: ComponentFixture<SvgDeleteComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MyNotesComponent]
+      declarations: [SvgDeleteComponent]
     });
-    fixture = TestBed.createComponent(MyNotesComponent);
+    fixture = TestBed.createComponent(SvgDeleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

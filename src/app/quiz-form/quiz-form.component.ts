@@ -52,8 +52,7 @@ export class QuizFormComponent {
         window.alert('Quiz Edited!');
 
         this.onUpdateStatistics(OperationType.EditQuiz);
-        // this.clearObjects(); //maybe needed?
-        this.router.navigate(['/quiz-on']);
+
       });
   }
 
@@ -64,8 +63,6 @@ export class QuizFormComponent {
         window.alert('Quiz Added!');
 
         this.onUpdateStatistics(OperationType.AddQuiz);
-        // this.clearObjects();
-        this.router.navigate(['/quiz-on']);
       },
       error: (error) => console.log('Error while adding Quiz: ', error)
     });
@@ -90,6 +87,10 @@ export class QuizFormComponent {
     this.statisticsService.updateStatistics(this.statistics).subscribe(
       (response: Statistics) => {
         console.log('statistics.service.updateStatistics() Works!: ', response);
+        this.router.navigate(['/'])
+        .then(() => {
+          window.location.reload();
+        });
         }
     )
   }
@@ -105,12 +106,6 @@ export class QuizFormComponent {
         console.log('statistics.service.getStatistics() Does Not Work!: ', error);
       }
     });
-  }
-
-  clearObjects() {
-    this.quiz = new Quiz();
-    // this.question = new Question();
-    this.statistics = new Statistics();
   }
 
   generateCorrectAnswer(question: Question): string
@@ -207,6 +202,5 @@ export class QuizFormComponent {
     confirm('Are you sure you want to delete this item?');
     this.quiz.questions.splice(i, 1);
   }
-
 
 }

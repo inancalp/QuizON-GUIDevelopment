@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
-import { StatisticsService } from '../statistics.service';
 import { Statistics } from '../statistics.model';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { StatisticsService } from '../statistics.service';
 
 @Component({
-  selector: 'app-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  selector: 'app-statistics',
+  templateUrl: './statistics.component.html',
+  styleUrls: ['./statistics.component.css']
 })
-export class MainPageComponent {
+export class StatisticsComponent {
 
   statistics: Statistics = new Statistics();
-  constructor(private statisticsService: StatisticsService,
-    private route: ActivatedRoute,) {}
+  constructor(private statisticsService: StatisticsService) {}
 
   ngOnInit(): void {
     this.statisticsService.getStatistics().subscribe({

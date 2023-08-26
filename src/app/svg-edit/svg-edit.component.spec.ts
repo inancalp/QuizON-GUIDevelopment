@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainPageComponent } from './main-page.component';
+import { SvgEditComponent } from './svg-edit.component';
 
-describe('MainPageComponent', () => {
-  let component: MainPageComponent;
-  let fixture: ComponentFixture<MainPageComponent>;
+describe('SvgEditComponent', () => {
+  let component: SvgEditComponent;
+  let fixture: ComponentFixture<SvgEditComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MainPageComponent]
+      declarations: [SvgEditComponent]
     });
-    fixture = TestBed.createComponent(MainPageComponent);
+    fixture = TestBed.createComponent(SvgEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
