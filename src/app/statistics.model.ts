@@ -10,6 +10,9 @@ export class Statistics{
   totalCorrectAnswers: number;
   notesEdited: number;
   totalQuizDeleted: number;
+  currentQuizAmount: number;
+  totalQuestionsDeleted: number;
+  currentAmountQuestions: number;
   id: number;
 
   constructor()
@@ -23,6 +26,9 @@ export class Statistics{
     this.totalCorrectAnswers = 0;
     this.notesEdited = 0;
     this.totalQuizDeleted = 0;
+    this.currentQuizAmount = 0;
+    this.totalQuestionsDeleted = 0;
+    this.currentAmountQuestions = 0;
     this.id = 0;
   }
 }

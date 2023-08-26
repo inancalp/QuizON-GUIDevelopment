@@ -5,45 +5,66 @@
   <div>
     <table class="table table-striped fs-5">
       <tbody>
-        <tr>
+        <tr class="table-secondary">
           <th>Notes Edited:</th>
           <th>{{ this.statistics.notesEdited }}</th>
         </tr>
-        <tr>
+        <tr class="table-primary">
           <th>Total Quizzes Made:</th>
           <th>{{ this.statistics.totalQuizMade }}</th>
         </tr>
-        <tr>
+        <tr class="table-primary">
           <th>Total Quizzes Edited:</th>
           <th>{{ this.statistics.totalQuizEdited }}</th>
         </tr>
-        <tr>
+        <tr class="table-primary">
           <th>Total Quizzes Deleted:</th>
           <th>{{ this.statistics.totalQuizDeleted }}</th>
         </tr>
-        <tr>
+        <tr class="table-primary">
+          <th>Current Quiz Amount:</th>
+          <th>{{ this.statistics.currentQuizAmount }}</th>
+        </tr>
+        <tr class="table-secondary">
           <th>Total Questions Made:</th>
           <th>{{ this.statistics.totalQuestionsMade }}</th>
         </tr>
-        <tr>
-          <th>Average Amount of Questions per Quiz:</th>
-          <th>{{ this.statistics.avgAmountQuestionsPerQuiz | round }}</th>
+        <tr class="table-secondary">
+          <th>Total Questions Deleted:</th>
+          <th>{{ this.statistics.totalQuestionsDeleted }}</th>
         </tr>
-        <tr>
+        <tr class="table-secondary">
+          <th>Current Question Amount:</th>
+          <th>{{ this.statistics.currentAmountQuestions }}</th>
+        </tr>
+        <tr class="table-secondary">
+          <th>Avg. Amount of Questions/Quiz:</th>
+          <th  *ngIf="this.statistics.currentQuizAmount">
+            {{ this.statistics.currentAmountQuestions / this.statistics.currentQuizAmount
+              | round }}
+          </th>
+          <th *ngIf="!this.statistics.currentQuizAmount">0</th>
+        </tr>
+        <tr class="table-primary">
           <th>Total Quizzes Finished:</th>
           <th>{{ this.statistics.totalQuizFinished }}</th>
         </tr>
-        <tr>
+        <tr class="table-primary">
           <th>Total Solved Questions:</th>
           <th>{{ this.statistics.totalSolvedQuestions }}</th>
         </tr>
-        <tr>
+        <tr class="table-primary">
           <th>Total Correct Answers:</th>
           <th>{{ this.statistics.totalCorrectAnswers }}</th>
         </tr>
-        <tr>
+        <tr class="table-success">
           <th>Success Ratio:</th>
-          <th>{{ this.statistics.totalCorrectAnswers / this.statistics.totalSolvedQuestions | number:'1.2-2'}}</th>
+          <th *ngIf="this.statistics.totalSolvedQuestions">
+            {{ this.statistics.totalCorrectAnswers / this.statistics.totalSolvedQuestions | number:'1.2-2'}}
+          </th>
+          <th *ngIf="!this.statistics.totalSolvedQuestions">
+            0
+          </th>
         </tr>
       </tbody>
     </table>

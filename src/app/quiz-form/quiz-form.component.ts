@@ -76,13 +76,25 @@ export class QuizFormComponent {
         break;
       case OperationType.AddQuiz:
         this.statistics.totalQuizMade++;
+        this.statistics.currentQuizAmount++;
         break;
       default:
         break;
     }
 
-    this.statistics.totalQuestionsMade += (this.quiz.questions.length - this.initialQuestionAmount);
-    this.statistics.avgAmountQuestionsPerQuiz = (this.statistics.totalQuestionsMade + this.quiz.questions.length - this.initialQuestionAmount) / (this.statistics.totalQuizMade + 1);
+    // this.statistics.totalQuestionsDeleted++;
+    // this.statistics.currentAmountQuestions--;
+
+
+
+    this.statistics.currentAmountQuestions += (this.quiz.questions.length - this.initialQuestionAmount);
+    this.statistics.avgAmountQuestionsPerQuiz = (this.statistics.currentAmountQuestions) / (this.statistics.currentQuizAmount);
+
+    if(this.quiz.questions.length > this.initialQuestionAmount) {
+      this.statistics.totalQuestionsMade += (this.quiz.questions.length - this.initialQuestionAmount);
+    } else {
+      this.statistics.totalQuestionsDeleted += -(this.quiz.questions.length - this.initialQuestionAmount);
+    }
 
     this.statisticsService.updateStatistics(this.statistics).subscribe(
       (response: Statistics) => {

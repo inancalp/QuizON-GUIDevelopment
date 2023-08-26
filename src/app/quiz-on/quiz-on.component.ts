@@ -48,17 +48,24 @@ export class QuizOnComponent {
   }
 
   deleteQuiz(quizId: number) {
-    this.quizzesService.deleteQuiz(quizId).subscribe(
-      (response: any) => {
-        console.log('Quiz Deleted: ', response);
-        this.onUpdateStatistics();
-        this.router.navigate(['/'])
-          // to be able to refresh the page, so deleted quiz is not visible anymore.
-          .then(() => {
-            window.location.reload();
-          });
-      }
-    )
+
+    const quiz = this.quizzes.find(quiz => quiz.id == quizId);
+
+    if(quiz) {
+      this.statistics.totalQuestionsDeleted += quiz.questions.length;
+      this.statistics.currentAmountQuestions -= quiz.questions.length;
+      this.statistics.totalQuizDeleted++;
+      this.statistics.currentQuizAmount--;
+
+      this.quizzesService.deleteQuiz(quizId).subscribe(
+        (response: any) => {
+          console.log('Quiz Deleted: ', response);
+          this.onUpdateStatistics();
+        })
+    } else {
+      console.log("deleteQuiz(quizId) => can't fint the quiz!");
+    }
+
   }
 
   editQuiz(quizId: number) {
@@ -92,7 +99,6 @@ export class QuizOnComponent {
 
 
   onUpdateStatistics() {
-    this.statistics.totalQuizDeleted++;
 
     this.statisticsService.updateStatistics(this.statistics).subscribe(
       (response: Statistics) => {
