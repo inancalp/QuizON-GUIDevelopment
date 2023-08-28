@@ -18,6 +18,7 @@ export class QuizFormComponent {
   @Input() operationType: OperationType = OperationType.NullType;
   @Input() quiz: Quiz = new Quiz();
 
+  quizzes: Quiz[] = [];
   statistics: Statistics = new Statistics();
   question: Question = new Question();
   questionIndexValue: number = 0;
@@ -31,13 +32,140 @@ export class QuizFormComponent {
   answerD_filled: boolean = true;
   quizTitle_filled: boolean = true;
   correctAnswer_filled: boolean = true;
+
   messageIsHidden: boolean = true;
   message: string = "";
+
+  answerA_duplicate: boolean = false;
+  answerB_duplicate: boolean = false;
+  answerC_duplicate: boolean = false;
+  answerD_duplicate: boolean = false;
 
   constructor( private quizzesService: QuizzesService, private router: Router, private statisticsService: StatisticsService) {}
 
   ngOnInit(): void {
     this.onGetStatistics();
+    this.onGetQuizzes();
+    console.log("@ngOnInit() -> this.quiz.questions.length", this.quiz.questions.length);
+  }
+
+  // angular triggers this lc-hook whenever change has made to a @Input() property
+  ngOnChanges(): void {
+    this.questionIndexValue = this.quiz.questions.length;
+    console.log("@ngOnChanges() -> this.quiz.questions.length", this.quiz.questions.length);
+  }
+
+  evaluateQuestion(): boolean {
+
+    let questionIsValid: boolean = true;
+    let questionValidation: boolean[] = [];
+    let question: string[] = [
+      this.question.question,
+      this.question.answerA,
+      this.question.answerB,
+      this.question.answerC,
+      this.question.answerD,
+      this.question.correctAnswer,
+    ];
+
+    for (let i = 0; i < question.length; i++) {
+      if(question[i].trim() == "") {
+        questionValidation[i] = false;
+      } else {
+        questionValidation[i]  = true;
+      }
+    }
+
+    this.questionFilled = questionValidation[0];
+    this.answerA_filled = questionValidation[1];
+    this.answerB_filled = questionValidation[2];
+    this.answerC_filled = questionValidation[3];
+    this.answerD_filled = questionValidation[4];
+    this.correctAnswer_filled = questionValidation[5];
+
+    if(this.correctAnswer_filled == false) {
+      this.message = "Please select the correct answer.";
+      this.messageIsHidden = false;
+    } else {
+      this.messageIsHidden = true;
+    }
+
+    for(let i = 0; i < questionValidation.length; i++) {
+      if(questionValidation[i] == false)
+      {
+        questionIsValid = false;
+        return questionIsValid;
+      }
+    }
+
+    if((this.answerInputsAreSame())) {
+      this.message = "Given answers should be different.";
+      this.messageIsHidden = false;
+      questionIsValid = false;
+      return questionIsValid;
+    }
+
+    return questionIsValid;
+  }
+
+
+  answerInputsAreSame(): boolean {
+
+    let duplicatesExist = false;
+
+    this.answerA_duplicate = false;
+    this.answerB_duplicate = false;
+    this.answerC_duplicate = false;
+    this.answerD_duplicate = false;
+
+    let answers = [
+      {answer: this.question.answerA, "onEvaluation": false, "isDuplicate": this.answerA_duplicate},
+      {answer: this.question.answerB, "onEvaluation": false, "isDuplicate": this.answerB_duplicate},
+      {answer: this.question.answerC, "onEvaluation": false, "isDuplicate": this.answerC_duplicate},
+      {answer: this.question.answerD, "onEvaluation": false, "isDuplicate": this.answerD_duplicate}
+    ];
+
+    for(let answerToEvaluate of answers) {
+      answerToEvaluate.onEvaluation = true;
+      for(let answer of answers) {
+        if(!answer.onEvaluation) {
+          if (answer.answer == answerToEvaluate.answer) {
+            answerToEvaluate.isDuplicate = true;
+            answer.isDuplicate = true;
+            duplicatesExist = true;
+          }
+        }
+      }
+      answerToEvaluate.onEvaluation = false;
+    }
+
+    this.answerA_duplicate = answers[0].isDuplicate;
+    this.answerB_duplicate = answers[1].isDuplicate;
+    this.answerC_duplicate = answers[2].isDuplicate;
+    this.answerD_duplicate = answers[3].isDuplicate;
+
+    return duplicatesExist;
+  }
+
+
+  quizTitleAlreadyInUse(): boolean {
+    for(let quiz of this.quizzes) {
+      if(quiz.title == this.quiz.title && quiz.id != this.quiz.id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  onGetQuizzes(): void {
+    this.quizzesService.getQuizzes().subscribe({
+      next: (response: Quiz[]) => {
+        console.log('Received quizzes: ', response);
+        this.quizzes = response;
+      },
+      error: (error) => console.log('Error: ', error),
+      complete: () => console.log('Quizzes ready!')
+    });
   }
 
   evaluateQuiz(): boolean {
@@ -57,8 +185,19 @@ export class QuizFormComponent {
     if(this.quiz.title.trim() == ""){
       this.quizTitle_filled = false;
       result = false;
+      return result;
     } else {
       this.quizTitle_filled = true;
+      result = true;
+    }
+
+    if(this.quizTitleAlreadyInUse()) {
+      this.message = "Title is already taken."
+      this.messageIsHidden = false;
+      result = false;
+      return result;
+    } else {
+      this.messageIsHidden = true;
       result = true;
     }
 
@@ -82,50 +221,21 @@ export class QuizFormComponent {
     }
   }
 
-  evaluateQuestion(): boolean {
-
-    let result: boolean = true;
-    let questionValidation: boolean[] = [];
-    let question: string[] = [
-      this.question.question,
-      this.question.answerA,
-      this.question.answerB,
-      this.question.answerC,
-      this.question.answerD,
-      this.question.correctAnswer,
-    ];
-
-    for (let i = 0; i < question.length; i++) {
-      if(question[i].trim() == "") {
-        questionValidation[i] = false;
-        result = false;
-      } else {
-        questionValidation[i]  = true;
-        result = true;
-      }
-    }
-
-    this.questionFilled = questionValidation[0];
-    this.answerA_filled = questionValidation[1];
-    this.answerB_filled = questionValidation[2];
-    this.answerC_filled = questionValidation[3];
-    this.answerD_filled = questionValidation[4];
-    this.correctAnswer_filled = questionValidation[5];
-
-    if(this.correctAnswer_filled == false ) {
-      this.message = "Please select the correct answer.";
-      this.messageIsHidden = false;
-    } else {
-      this.messageIsHidden = true;
-    }
 
 
-    return result;
+  activateAddQuestionMode() {
+    this.editClicked = false;
+    this.questionButtonText = "Add the Question";
+    this.questionIndexValue = this.quiz.questions.length;
   }
 
   appendQuestion() {
     // new question to create new instances within the memory.
     if(this.evaluateQuestion()){
+
+      if(!this.editClicked)
+        this.statistics.totalQuestionsMade++;
+
       let newQuestion = new Question();
       this.fillInNewQuestion(newQuestion, this.questionIndexValue);
       this.quiz.questions[this.questionIndexValue] = newQuestion;
@@ -134,7 +244,19 @@ export class QuizFormComponent {
     }
   }
 
+  onEditQuestionClicked(i: number) {
+    this.editClicked = true;
+    this.questionButtonText = "Edit the Question";
+    this.questionIndexValue = i;
 
+    this.question.question = this.quiz.questions[i].question;
+    this.question.answerA = this.quiz.questions[i].answerA;
+    this.question.answerB = this.quiz.questions[i].answerB;
+    this.question.answerC = this.quiz.questions[i].answerC;
+    this.question.answerD = this.quiz.questions[i].answerD;
+    this.question.correctAnswer = this.quiz.questions[i].correctAnswer;
+    this.evaluateQuestion();
+  }
 
 
 
@@ -179,11 +301,11 @@ export class QuizFormComponent {
     this.statistics.currentAmountQuestions += (this.quiz.questions.length - this.initialQuestionAmount);
     this.statistics.avgAmountQuestionsPerQuiz = (this.statistics.currentAmountQuestions) / (this.statistics.currentQuizAmount);
 
-    if(this.quiz.questions.length > this.initialQuestionAmount) {
-      this.statistics.totalQuestionsMade += (this.quiz.questions.length - this.initialQuestionAmount);
-    } else {
-      this.statistics.totalQuestionsDeleted += -(this.quiz.questions.length - this.initialQuestionAmount);
-    }
+    // if(this.quiz.questions.length > this.initialQuestionAmount) {
+    //   this.statistics.totalQuestionsMade += (this.quiz.questions.length - this.initialQuestionAmount);
+    // } else {
+    //   this.statistics.totalQuestionsDeleted += -(this.quiz.questions.length - this.initialQuestionAmount);
+    // }
 
     this.statisticsService.updateStatistics(this.statistics).subscribe(
       (response: Statistics) => {
@@ -226,6 +348,13 @@ export class QuizFormComponent {
   }
 
   onCancelClicked() {
+
+    this.questionFilled = true;
+    this.answerA_filled = true;
+    this.answerB_filled = true;
+    this.answerC_filled = true;
+    this.answerD_filled = true;
+
     this.clearQuestionObject();
     this.activateAddQuestionMode();
   }
@@ -237,12 +366,11 @@ export class QuizFormComponent {
     this.question.answerC = "";
     this.question.answerD = "";
     this.question.correctAnswer = "";
-  }
 
-  activateAddQuestionMode() {
-    this.editClicked = false;
-    this.questionButtonText = "Add the Question";
-    this.questionIndexValue = this.quiz.questions.length;
+    this.answerA_duplicate = false;
+    this.answerB_duplicate = false;
+    this.answerC_duplicate = false;
+    this.answerD_duplicate = false;
   }
 
 
@@ -276,23 +404,27 @@ export class QuizFormComponent {
     }
   }
 
+  deleteClicked(i: number, event: Event)
+  {
+    //to prevent the click event from spreading to the parent container.
+    event.stopPropagation();
+    console.log("i when deleteClicked: ", i);
+    console.log(" this.quiz.questions[i].deleteTimer: ", i);
+    this.quiz.questions[i].deleteClicked = true;
 
-  onEditQuestionClicked(i: number) {
-    this.editClicked = true;
-    this.questionButtonText = "Edit the Question";
-    this.questionIndexValue = i;
-
-    this.question.question = this.quiz.questions[i].question;
-    this.question.answerA = this.quiz.questions[i].answerA;
-    this.question.answerB = this.quiz.questions[i].answerB;
-    this.question.answerC = this.quiz.questions[i].answerC;
-    this.question.answerD = this.quiz.questions[i].answerD;
-    this.question.correctAnswer = this.quiz.questions[i].correctAnswer;
+    setTimeout(() => {
+      this.quiz.questions[i].deleteClicked = false;
+      }, this.quiz.deleteTimer);
   }
 
-  onDeleteClicked(i: number){
-    confirm('Are you sure you want to delete this item?');
+  deleteQuestion(i: number) {
     this.quiz.questions.splice(i, 1);
+
+    this.statistics.totalQuestionsDeleted++;
+
+    this.clearQuestionObject();
+    this.activateAddQuestionMode();
   }
+
 
 }

@@ -1,9 +1,9 @@
 <div class="container">
   <div class="d-flex justify-content-end mt-2">
     <div class="d-flex">
-      <button class="btn btn-primary me-2" (click)="saveNotes()" [hidden]="!editing">Save</button>
-      <button class="btn btn-secondary me-2" (click)="cancelSaveNotes()" [hidden]="!editing">Cancel</button>
-      <button class="btn btn-secondary" (click)="toggleEdit()" [disabled]="editing">
+      <button class="btn btn-primary me-2 shadow" (click)="saveNotes()" [hidden]="!editing">Save</button>
+      <button class="btn btn-secondary me-2 shadow" (click)="cancelSaveNotes()" [hidden]="!editing">Cancel</button>
+      <button class="btn btn-secondary shadow" (click)="toggleEdit()" [disabled]="editing">
         <app-svg-edit></app-svg-edit>
         Edit Notes
       </button>

@@ -1,25 +1,89 @@
 {
-  "quizzes": [],
+  "quizzes": [
+    {
+      "title": "qwer",
+      "questions": [
+        {
+          "question": "q2",
+          "answerA": "1",
+          "answerB": "4",
+          "answerC": "3",
+          "answerD": "2",
+          "correctAnswer": "answerD",
+          "selectedAnswer": "answerD",
+          "deleteClicked": false,
+          "id": 0
+        },
+        {
+          "question": "q",
+          "answerA": "1",
+          "answerB": "2",
+          "answerC": "3",
+          "answerD": "4",
+          "correctAnswer": "answerD",
+          "selectedAnswer": "answerD",
+          "deleteClicked": false,
+          "id": 1
+        },
+        {
+          "question": "qqq",
+          "answerA": "1",
+          "answerB": "2",
+          "answerC": "3",
+          "answerD": "4",
+          "correctAnswer": "answerD",
+          "selectedAnswer": "answerD",
+          "deleteClicked": false,
+          "id": 2
+        },
+        {
+          "question": "q",
+          "answerA": "2",
+          "answerB": "3",
+          "answerC": "4",
+          "answerD": "5",
+          "correctAnswer": "answerD",
+          "selectedAnswer": "answerD",
+          "deleteClicked": false,
+          "id": 3
+        },
+        {
+          "question": "q",
+          "answerA": "12",
+          "answerB": "23",
+          "answerC": "34",
+          "answerD": "233",
+          "correctAnswer": "answerC",
+          "selectedAnswer": "answerD",
+          "deleteClicked": false,
+          "id": 4
+        }
+      ],
+      "deleteClicked": false,
+      "deleteTimer": 1500,
+      "id": 2
+    }
+  ],
   "statistics": [
     {
-      "totalQuizMade": 0,
-      "totalQuizEdited": 0,
-      "totalQuestionsMade": 0,
-      "avgAmountQuestionsPerQuiz": 0,
-      "totalQuizFinished": 0,
-      "totalSolvedQuestions": 0,
-      "totalCorrectAnswers": 0,
-      "notesEdited": 0,
-      "totalQuizDeleted": 0,
-      "currentQuizAmount": 0,
-      "totalQuestionsDeleted": 0,
-      "currentAmountQuestions": 0,
+      "totalQuizMade": 2,
+      "totalQuizEdited": 2,
+      "totalQuestionsMade": 9,
+      "avgAmountQuestionsPerQuiz": 4,
+      "totalQuizFinished": 2,
+      "totalSolvedQuestions": 8,
+      "totalCorrectAnswers": 5,
+      "notesEdited": 1,
+      "totalQuizDeleted": 1,
+      "currentQuizAmount": 1,
+      "totalQuestionsDeleted": 4,
+      "currentAmountQuestions": 5,
       "id": 0
     }
   ],
   "notes": [
     {
-      "notes": "",
+      "notes": "  - Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\n  - Aliquam tincidunt mauris eu risus.\n  - Vestibulum auctor dapibus neque.\n  - Nunc dignissim risus id metus.\n  - Cras ornare tristique elit.\n  - Vivamus vestibulum ntulla nec ante.\n  - Praesent placerat risus quis eros.\n  - Fusce pellentesque suscipit nibh.\n  - Integer vitae libero ac risus egestas placerat.\n  - Vestibulum commodo felis quis tortor.\n  - Ut aliquam sollicitudin leo.\n  - Cras iaculis ultricies nulla.\n  - Donec quis dui at dolor tempor interdum.\n  ",
       "id": 0
     }
   ]

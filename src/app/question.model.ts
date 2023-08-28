@@ -6,6 +6,7 @@ export class Question{
   answerD: string;
   correctAnswer: string;
   selectedAnswer: string;
+  deleteClicked: boolean;
   id: number;
 
   constructor()
@@ -17,6 +18,7 @@ export class Question{
     this.answerD = '';
     this.correctAnswer = '';
     this.selectedAnswer = '';
+    this.deleteClicked = false;
     this.id = -1;
   }
 }

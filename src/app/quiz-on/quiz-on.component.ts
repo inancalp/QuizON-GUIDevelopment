@@ -47,6 +47,22 @@ export class QuizOnComponent {
     this.router.navigate(['/quiz', quizId]);
   }
 
+  editQuiz(quizId: number) {
+    this.router.navigate(['/edit-quiz', quizId]);
+  }
+
+
+  deleteClicked(i: number, event: Event)
+  {
+    //to prevent the click event from spreading to the parent container.
+    event.stopPropagation();
+
+    this.quizzes[i].deleteClicked = true;
+    setTimeout(() => {
+      this.quizzes[i].deleteClicked = false;
+      }, this.quizzes[i].deleteTimer);
+  }
+
   deleteQuiz(quizId: number) {
 
     const quiz = this.quizzes.find(quiz => quiz.id == quizId);
@@ -66,22 +82,6 @@ export class QuizOnComponent {
       console.log("deleteQuiz(quizId) => can't fint the quiz!");
     }
 
-  }
-
-  editQuiz(quizId: number) {
-    this.router.navigate(['/edit-quiz', quizId]);
-  }
-
-
-  deleteClicked(i: number, event: Event)
-  {
-    //to prevent the click event from spreading to the parent container.
-    event.stopPropagation();
-
-    this.quizzes[i].deleteClicked = true;
-    setTimeout(() => {
-      this.quizzes[i].deleteClicked = false;
-      }, this.quizzes[i].deleteTimer);
   }
 
   onGetStatistics() {

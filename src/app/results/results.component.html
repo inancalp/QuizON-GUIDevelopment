@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container container-custom fs-5">
   <div class="row">
-    <div class="col my-2 py-2 px-4 border border-2 rounded">
+    <div class="col py-2 px-4">
       <app-navigation-button
         [componentName]="componentName.MainPage"
       ></app-navigation-button>
@@ -9,27 +9,24 @@
         <h1> Results: {{ totalCorrectAnswers() }}/{{ quiz.questions.length }} </h1>
       </div>
       <div *ngFor="let question of quiz.questions; let i = index">
-        <div class="card mx-2 mb-4">
-          <div class="card-header fs-5 ">
-            Question {{i+1}}:
-          </div>
+        <div class="card mx-2 my-4 shadow-lg">
           <div class="card-body">
             <div class="fw-bold mb-1">
-              Question:
+              Question {{i+1}}:
             </div>
-            <div class="border p-2 mb-3">
+            <div class="border shadow p-2 mb-3">
               {{ question.question }}
             </div>
             <div class="fw-bold mb-1">
               - Your Answer:
             </div>
-            <div class="border border-success border-2 p-2 mb-3" [class.border-danger]="isWrongAnswer(question)">
+            <div class="border border-success border-3 p-2 mb-3" [class.border-danger]="isWrongAnswer(question)">
                 {{ selectedAnswer(question) }}
             </div>
             <div class="fw-bold mb-1">
               - Correct Answer:
             </div>
-            <div class="border border-success border-2 p-2 mb-3" [class.border-dark]="isWrongAnswer(question)">
+            <div class="border border-success border-3 p-2 mb-3" [class.border-dark]="isWrongAnswer(question)">
               {{ correctAnswer(question) }}
             </div>
           </div>

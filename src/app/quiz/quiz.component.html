@@ -1,75 +1,76 @@
-<div class="container">
+<div class="container container-custom fs-5">
   <div class="row">
-    <div class="col my-2 py-2 px-4 border border-2 rounded">
+    <div class="col py-2 px-4">
       <app-navigation-button
-  [componentName]="componentName.MainPage"
-></app-navigation-button>
+        [componentName]="componentName.MainPage"
+      ></app-navigation-button>
+      <div class="card">
+        <h5 class="card-header p-2 ps-4">
+          Quiz : <span class="fw-bold">{{quiz.title}}</span>
+        </h5>
+        <div class="card-body">
+          <div *ngFor="let question of quiz.questions; let i = index" [hidden]="i < startIndex || i >= endIndex">
 
-<div class="card">
-  <h5 class="card-header">
-    quiz id: id: {{quiz.id}} / quiz title : {{quiz.title}}
-  </h5>
-  <div class="card-body">
-    <div *ngFor="let question of quiz.questions; let i = index" [hidden]="i < startIndex || i >= endIndex">
+              <div class="fs-5 mb-1 mx-2 fw-bold">
+                Question {{i+1}}:
+              </div>
+              <div class="border border-dark p-2 mb-4 mx-4">
+                {{ question.question }}
+              </div>
+              <hr>
+              <div class="fs-5 mb-1 mx-2 fw-bold">
+                Answers:
+              </div>
+              <div class="mx-4">
+                <div class="form-check mb-2 d-flex align-items-center">
+                  <div>
+                    <input class="form-check-input me-2" type="radio" name="answerA{{i}}" id="answerA{{i}}" value="answerA" [(ngModel)]="question.selectedAnswer">
+                  </div>
+                  <label class="answerOnHover form-check-label overflow-auto border border-dark shadow p-2 flex-grow-1" for="answerA{{i}}">
+                    {{ question.answerA }}
+                  </label>
+                </div>
+                <div class="form-check mb-2 d-flex align-items-center">
+                  <div>
+                    <input class="form-check-input me-2" type="radio" name="answerB{{i}}" id="answerB{{i}}" value="answerB" [(ngModel)]="question.selectedAnswer">
+                  </div>
+                  <label class="answerOnHover form-check-label overflow-auto border border-dark shadow p-2 flex-grow-1" for="answerB{{i}}">
+                    {{ question.answerB }}
+                  </label>
+                </div>
+                <div class="form-check mb-2 d-flex align-items-center">
+                  <div>
+                    <input class="form-check-input me-2" type="radio" name="answerC{{i}}" id="answerC{{i}}" value="answerC" [(ngModel)]="question.selectedAnswer">
+                  </div>
+                  <label class="answerOnHover form-check-label overflow-auto border border-dark shadow p-2 flex-grow-1" for="answerC{{i}}">
+                    {{ question.answerC }}
+                  </label>
+                </div>
+                <div class="form-check mb-2 d-flex align-items-center">
+                  <div>
+                    <input class="form-check-input me-2" type="radio" name="answerD{{i}}" id="answerD{{i}}" value="answerD" [(ngModel)]="question.selectedAnswer">
+                  </div>
+                  <label class="answerOnHover form-check-label overflow-auto border border-dark shadow p-2 flex-grow-1" for="answerD{{i}}">
+                    {{ question.answerD }}
+                  </label>
+                </div>
+              </div>
+            <div class="d-flex justify-content-between mt-4">
+              <!-- "Previous" and "Next" buttons -->
+              <div>
+                <button type="button" class="btn btn-light me-2 mb-2 shadow" (click)="previousPage()" [disabled]="currentPage == 1">Previous</button>
+                <button type="button" class="btn btn-light mb-2 shadow" (click)="nextPage()" [disabled]="endIndex >= quiz.questions.length">Next</button>
+              </div>
 
-        <div class="fs-5 mb-1">
-          Question {{i+1}}:
-        </div>
-        <div class="border p-2 mb-4">
-          {{ question.question }}
-        </div>
-        <hr>
-        <div class="fs-5 mb-1">
-          Answers:
-        </div>
-        <div class="form-check p-2 mx-2 d-flex align-items-center">
-          <div>
-            <input class="form-check-input me-2" type="radio" name="answerA{{i}}" id="answerA{{i}}" value="answerA" [(ngModel)]="question.selectedAnswer">
+              <!-- "Show Score" button -->
+              <div>
+                <button type="button" class="btn btn-primary mb-2 shadow" (click)="showResults()" [disabled]="!isAllAnswersSelected()">Show Results</button>
+              </div>
+            </div>
           </div>
-          <label class="answerOnHover form-check-label overflow-auto border p-2 flex-grow-1" for="answerA{{i}}">
-            {{ question.answerA }}
-          </label>
-        </div>
-        <div class="form-check p-2 mx-2 d-flex align-items-center">
-          <div>
-            <input class="form-check-input me-2" type="radio" name="answerB{{i}}" id="answerB{{i}}" value="answerB" [(ngModel)]="question.selectedAnswer">
-          </div>
-          <label class="answerOnHover form-check-label overflow-auto border p-2 flex-grow-1" for="answerB{{i}}">
-            {{ question.answerB }}
-          </label>
-        </div>
-        <div class="form-check p-2 mx-2 d-flex align-items-center">
-          <div>
-            <input class="form-check-input me-2" type="radio" name="answerC{{i}}" id="answerC{{i}}" value="answerC" [(ngModel)]="question.selectedAnswer">
-          </div>
-          <label class="answerOnHover form-check-label overflow-auto border p-2 flex-grow-1" for="answerC{{i}}">
-            {{ question.answerC }}
-          </label>
-        </div>
-        <div class="form-check p-2 mx-2 d-flex align-items-center">
-          <div>
-            <input class="form-check-input me-2" type="radio" name="answerD{{i}}" id="answerD{{i}}" value="answerD" [(ngModel)]="question.selectedAnswer">
-          </div>
-          <label class="answerOnHover form-check-label overflow-auto border p-2 flex-grow-1" for="answerD{{i}}">
-            {{ question.answerD }}
-          </label>
-        </div>
-      <div class="d-flex justify-content-between mt-4">
-        <!-- "Previous" and "Next" buttons -->
-        <div>
-          <button type="button" class="btn btn-light me-2 mb-2" (click)="previousPage()" [disabled]="currentPage == 1">Previous</button>
-          <button type="button" class="btn btn-light mb-2" (click)="nextPage()" [disabled]="endIndex >= quiz.questions.length">Next</button>
-        </div>
 
-        <!-- "Show Score" button -->
-        <div>
-          <button type="button" class="btn btn-primary mb-2" (click)="showResults()" [disabled]="!isAllAnswersSelected()">Show Results</button>
         </div>
       </div>
-    </div>
-
-  </div>
-</div>
     </div>
   </div>
 </div>
