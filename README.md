@@ -5,14 +5,9 @@
 
 
 ## Features
-- Statistics:
-  - Records user interactions within the application.
-
-- Notes:
-  - Allows users to take and save notes for future reference during quizzes.
-
-- Quizzes:
-  - Enables users to create, delete, and update their personal quizzes.
+- Statistics: Records user interactions within the application.
+- Notes: Allows users to take and save notes for future reference during quizzes.
+- Quizzes: Enables users to create, delete, and update their personal quizzes.
 
 
 
