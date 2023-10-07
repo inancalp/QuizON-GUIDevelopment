@@ -1,0 +1,72 @@
+OBJECTIVES DOCUMENT
+-------------------
+
+
+
+-------------
+"Edit Notes":
+-------------
+- All that needs to be done is to click "Edit Notes" within the Main page.
+
+
+
+--------------------------
+"Add/Edit/Delete Quizzes":
+--------------------------
+
+Add Quiz:
+---------
+- The "Add Quiz" button within the Main Page will direct the user to the related page. There, the user can add questions easily and evaluate them before submitting the Quiz.
+- Questions can be edited and deleted on the same page. The user needs to click on the question's row to evaluate the question's content.
+	- If the user clicks on the "Edit" button within the row, the question will be filled within the form above, which the user can modify.
+	- The "Delete" button will request confirmation before deleting the question.
+
+Edit Quiz:
+----------
+- "Edit Quiz" works in the same way as "Add Quiz". The user needs to click the "Edit" button within the selected quiz's row. The user will be directed to the "Edit Quiz" page, and the remaining actions to perform will be the same as the "Add Quiz" functionality.
+
+Delete Quiz:
+------------
+- The user needs to click the "Delete" button within the quiz's row. The Delete button will request confirmation before proceeding with the deletion.
+
+
+
+
+--------------
+Taking a Quiz:
+--------------
+
+The user can click on the "Quiz Row" to be directed to the Quiz's page.
+- There, the user can solve the questions.
+- After all questions are solved, the user can evaluate the results.
+- Results will be shown on the "Results Page".
+
+
+-----------
+Statistics:
+-----------
+ - All actions performed are tracked and displayed within the "Statistics" component, which is included on the main page. Users can view information on actions taken within the statistics, such as "Total Quiz Amount," "Average Amount of Questions/Quiz," "Success Ratio," and so on.
+
+
+
+-------------------------------------------------------------
+
+
+
+------------------------
+Shortcomings to Improve:
+------------------------
+
+- QuizON Express serves a simpler purpose than Kahoot!.
+- QuizON, with it's simpler layout and directives, lets users to take notes and create quizzes to boost their study performance without overwhelming them.
+
+
+------------------
+Strengths to Keep:
+------------------
+
+- Flat 2.0 design with card layout is a trend in use for a good reason. It allows users to feel the depth of the layout and seperates different features using cards.
+- Within QuizON Express, both design trends are in use, while shadows are used to clarify purpose of components, card system is used in a different way give it a personal touch.
+
+
+
